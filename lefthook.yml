@@ -33,6 +33,22 @@
 #       runner: node
 #     "any.go":
 #       runner: go run
+pre-commit:
+  piped: true
+  commands:
+    format:
+      priority: 1
+      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,yml,yaml,md,mdx,json,html,css}"
+      run: |
+        npx prettier {staged_files} --write
+      stage_fixed: true
+
+    lint:
+      priority: 2
+      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts}"
+      run: |
+        npx eslint {staged_files} --max-warnings=0 --fix
+      stage_fixed: true
 commit-msg:
   commands:
     "lint commit message":
