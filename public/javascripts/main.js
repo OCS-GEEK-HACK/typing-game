@@ -1,5 +1,5 @@
-"use strict"
+"use strict";
 
-import { Hello } from "./modules/hello.js"
+import { Hello } from "./modules/hello.js";
 
-Hello()
+Hello();
