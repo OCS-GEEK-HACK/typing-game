@@ -7,3 +7,21 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+h2 {
+  font-size: 60px;
+  text-align: center;
+  padding-top: 40px;
+}
+
+p {
+  /* 水平方向の中央揃え */
+  font-size: 60px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+input {
+  transform: translate(50%, 50%);
+  width: 50%;
+}
