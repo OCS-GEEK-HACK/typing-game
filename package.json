@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www",
+    "dev": "nodemon --env-file=.env ./bin/www",
     "lint": "eslint . --max-warnings=0 --config eslint.config.mjs",
     "lint:fix": "eslint . --max-warnings=0 --config eslint.config.mjs --fix",
     "format": "prettier --write ."
