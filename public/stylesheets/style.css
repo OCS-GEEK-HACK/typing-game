@@ -6,4 +6,6 @@ body {
   background-image: url(/images/background-image.png);
   background-size: cover;
   background-position: center;
+  text-align: center;
+  font-size: 50px;
 }
