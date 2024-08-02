@@ -40,7 +40,7 @@ export default [
   {
     files: ["**/*.js"],
     languageOptions: {
-      ecmaVersion: 2021,
+      ecmaVersion: 2025,
       sourceType: "module",
     },
     rules: pluginJs.configs.recommended.rules,
