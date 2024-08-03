@@ -21,7 +21,7 @@ body {
 button {
   color: #fff;
   background-color: brown;
-  border-radius: 0cap;
+  border-radius: 0%;
   font-size: 1.6rem;
   border: none;
 }
@@ -33,6 +33,16 @@ button {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  background-image: url(image.png);
   background-color: aqua;
   border: none;
+}
+
+.volume-button img {
+  display: block;
+  /* 画像の周囲の余白を削除 */
+  width: 100%;
+  /* 画像の幅をボタンに合わせる */
+  height: auto;
+  /* 画像の高さを自動調整 */
 }
