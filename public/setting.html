@@ -9,25 +9,19 @@
   <body>
     <h2>設定</h2>
     <p>Volume</p>
-    <p>BGM</p>
-    <p>SE</p>
-
-    <div>
-      <input type="range" id="volume" name="volume" min="0" max="11" />
-    </div>
-
     <div>
       <input
         type="range"
-        id="BGM"
-        name="BGM"
+        id="Volume"
+        name="Volume"
         min="0"
         max="100"
         value="90"
-        step="10"
+        step="2"
       />
     </div>
 
+    <p>BGM</p>
     <div>
       <input
         type="range"
@@ -36,7 +30,20 @@
         min="0"
         max="100"
         value="90"
-        step="10"
+        step="2"
+      />
+    </div>
+
+    <p>SE</p>
+    <div>
+      <input
+        type="range"
+        id="volume"
+        name="volume"
+        min="0"
+        max="100"
+        value="90"
+        step="2"
       />
     </div>
   </body>
