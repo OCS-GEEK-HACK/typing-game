@@ -3,7 +3,29 @@
     <title>タイピングゲーム</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <script type="module" src="/javascripts/main.js"></script>
+    <style>
+      .none {
+        display: none;
+      }
+    </style>
   </head>
 
-  <body></body>
+  <body>
+    <div data-screen="title" class="">
+      <h1>タイトル</h1>
+      <div>
+        <button data-action="start">ゲームスタート</button>
+        <button data-action="setting">設定</button>
+        <button data-action="terms">利用規約</button>
+        <button data-action="credits">クレジット</button>
+      </div>
+    </div>
+    <div data-screen="setting" class="none">設定</div>
+    <div data-screen="select-mode" class="none">
+      <h1>難易度選択</h1>
+      <button data-action="game">ゲーム開始</button>
+    </div>
+    <div data-screen="game" class="none">ゲーム</div>
+    <div data-screen="game-result" class="none">ゲーム結果</div>
+  </body>
 </html>
