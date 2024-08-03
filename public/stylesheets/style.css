@@ -10,18 +10,29 @@ body {
   font-size: 50px;
 }
 
-.start {
-  font-size: 20px;
-  display: block;
-  text-align: center;
-  vertical-align: middle;
-  text-decoration: none;
-  width: 200px;
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 500;
   margin: auto;
-  padding: 1rem 4rem;
-  border: 1px solid brown;
-  background: brown;
+}
+
+button {
   color: #fff;
-  border-radius: 20vh;
-  transition: 0.5s;
+  background-color: brown;
+  border-radius: 0cap;
+  font-size: 1.6rem;
+  border: none;
+}
+
+.volume-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: aqua;
+  border: none;
 }
