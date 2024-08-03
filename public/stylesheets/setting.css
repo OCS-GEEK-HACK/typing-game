@@ -9,12 +9,22 @@ body {
 }
 
 h2 {
+  /*テキストをドラッグできないようにします*/
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
   font-size: 60px;
   text-align: center;
   padding-top: 40px;
 }
 
 p {
+  /*テキストをドラッグできないようにします*/
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
   /* 水平方向の中央揃え */
   font-size: 50px;
   text-align: center;
