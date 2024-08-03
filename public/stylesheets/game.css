@@ -1,0 +1,112 @@
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100dvh;
+  background-image: url(/images/background-image.png);
+  background-size: cover;
+  background-position: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.timer {
+  position: absolute;
+  top: 5%;
+  font-size: 50px;
+  left: 10%;
+  background: #ced;
+  border: 1px solid rgb(1, 64, 100);
+  border-radius: 30px;
+  width: 300px;
+  height: 100px;
+  line-height: 100px;
+  color: #000000;
+  text-align: center;
+}
+.point {
+  position: absolute;
+  top: 5%;
+  font-size: 75px;
+  font-weight: bold;
+  left: 70%;
+  background: #ced;
+  border: 1px solid rgb(1, 64, 100);
+  border-radius: 30px;
+  width: 500px;
+  height: 100px;
+  line-height: 100px;
+  color: #000000;
+  text-align: center;
+}
+
+.arrow_box {
+  position: relative;
+  top: 30%;
+  font-size: 50px;
+  left: 2%;
+  width: 80%;
+  height: 120px;
+  background: #2fc0b4;
+  padding: 10px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  text-shadow: 0px 0px 0px #000000;
+}
+.arrow_box p {
+  position: relative;
+  top: 0px;
+  margin-top: 30px;
+  font-size: 50px;
+  left: 2%;
+}
+.arrow_box::after {
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  pointer-events: none;
+  position: absolute;
+  border-color: rgba(0, 153, 255, 0);
+  border-top-width: 19px;
+  border-bottom-width: 19px;
+  border-left-width: 53px;
+  border-right-width: 53px;
+  margin-top: -19px;
+  border-left-color: #2fc0b4;
+  left: 100%;
+  top: 38%;
+}
+
+.textbox {
+  top: 70%;
+  left: 2%;
+  text-align: center;
+  position: absolute;
+  display: inline-block;
+  height: 120px;
+  width: 80%;
+  padding: 0.5em;
+  border-radius: 20px;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  background: #f2f2f2;
+  margin: 0.5em 0;
+  font-size: 50px;
+}
+.textbox::placeholder {
+  text-align: center;
+}
+
+.zunda {
+  position: absolute;
+  top: 10%;
+  left: 77%;
+  width: 541px;
+  height: 825px;
+  object-fit: cover;
+}
