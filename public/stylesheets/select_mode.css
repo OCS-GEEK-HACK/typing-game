@@ -9,27 +9,28 @@ body {
   overflow: hidden;
 }
 
-h1 {
-  margin-top: 100px;
+[data-screen="select-mode"] {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+[data-screen="select-mode"] h1 {
   text-align: center;
   font-size: 3rem;
   text-shadow: 2px 1px 1px #ffffff;
 }
 
-.button {
-  margin-top: -20px;
-  transform: scale(2);
-  height: 35%;
-}
-
-.Box {
-  justify-content: space-evenly;
+[data-screen="select-mode"] .radio-group {
   display: flex;
-  margin: 50 auto;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
   border: 100%;
-  line-height: 2;
-  width: 600;
-  padding: 0 20px;
   font-size: 2rem;
   text-align: center;
   color: #fff;
@@ -46,143 +47,66 @@ h1 {
   box-shadow:
     inset 2px 2px 3px rgb(255 255 255 / 60%),
     inset -2px -2px 3px rgb(0 0 0 / 60%);
+  width: 100%;
+  max-width: 700px;
 }
 
-.mode_button {
-  margin-top: 70;
+[data-screen="select-mode"] .radio-group :has(input[type="radio"]) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
 
+[data-screen="select-mode"] .radio-group input[type="radio"] {
+  transform: scale(2);
+}
+
+.mode-button button {
+  border: 0;
+  line-height: 2.5;
+  width: 600px;
+  padding: 0 2rem;
+  font-size: 2rem;
   text-align: center;
-
-  label {
-    font:
-      1rem "Fira Sans",
-      sans-serif;
-  }
-
-  input {
-    margin: 0.4rem;
-  }
-
-  .styled {
-    border: 0;
-    line-height: 2.5;
-    width: 600;
-    padding: 0 20px;
-    font-size: 2rem;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    border-radius: 10px;
-    background-color: #2f99c0;
-    background-image: linear-gradient(
-      to top left,
-      rgb(0 0 0 / 20%),
-      rgb(0 0 0 / 20%) 30%,
-      rgb(0 0 0 / 0%)
-    );
-    box-shadow:
-      inset 2px 2px 3px rgb(255 255 255 / 60%),
-      inset -2px -2px 3px rgb(0 0 0 / 60%);
-  }
-
-  .styled:hover {
-    background-color: rgb(4, 0, 255);
-  }
-
-  .styled:active {
-    box-shadow:
-      inset -2px -2px 3px rgb(255 255 255 / 60%),
-      inset 2px 2px 3px rgb(0 0 0 / 60%);
-  }
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to top left,
+    rgb(0 0 0 / 20%),
+    rgb(0 0 0 / 20%) 30%,
+    rgb(0 0 0 / 0%)
+  );
+  box-shadow:
+    inset 2px 2px 3px rgb(255 255 255 / 60%),
+    inset -2px -2px 3px rgb(0 0 0 / 60%);
 }
 
-.mode_button2 {
-  margin-top: 50;
-
-  text-align: center;
-
-  label {
-    font:
-      1rem "Fira Sans",
-      sans-serif;
-  }
-
-  input {
-    margin: 0.4rem;
-  }
-
-  .styled {
-    border: 0;
-    line-height: 2.5;
-    width: 600;
-    padding: 0 20px;
-    font-size: 2rem;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    border-radius: 10px;
-    background-color: #c02f2f;
-    background-image: linear-gradient(
-      to top left,
-      rgb(0 0 0 / 20%),
-      rgb(0 0 0 / 20%) 30%,
-      rgb(0 0 0 / 0%)
-    );
-    box-shadow:
-      inset 2px 2px 3px rgb(255 255 255 / 60%),
-      inset -2px -2px 3px rgb(0 0 0 / 60%);
-  }
-
-  .styled:hover {
-    background-color: rgb(255, 0, 0);
-  }
-
-  .styled:active {
-    box-shadow:
-      inset -2px -2px 3px rgb(255 255 255 / 60%),
-      inset 2px 2px 3px rgb(0 0 0 / 60%);
-  }
+.mode-button .it-button {
+  background-color: #2f99c0;
 }
 
-.bgm_off {
-  margin-top: 40;
-  text-align: right;
-  object-fit: cover;
+.mode-button .it-button:hover {
+  background-color: rgb(4, 0, 255);
+}
 
-  label {
-    font:
-      1rem "Fira Sans",
-      sans-serif;
-  }
+.mode-button .it-button:active {
+  box-shadow:
+    inset -2px -2px 3px rgb(255 255 255 / 60%),
+    inset 2px 2px 3px rgb(0 0 0 / 60%);
+}
 
-  input {
-    margin: 0.4rem;
-  }
+.mode-button .normal-button {
+  background-color: #c02f2f;
+}
 
-  .styled {
-    max-width: 120%;
-    height: 70px;
-    width: 70;
-    border-radius: 100px;
-    background-color: #29a5ae;
-    background-image: linear-gradient(
-      to top left,
-      rgb(0 0 0 / 20%),
-      rgb(0 0 0 / 20%) 30%,
-      rgb(0 0 0 / 0%)
-    );
-    box-shadow:
-      inset 2px 2px 3px rgb(255 255 255 / 60%),
-      inset -2px -2px 3px rgb(0 0 0 / 60%);
-  }
+.mode-button .normal-button:hover {
+  background-color: rgb(255, 0, 0);
+}
 
-  .styled:hover {
-    background-color: #29a5ae;
-  }
-
-  .styled:active {
-    box-shadow:
-      inset -2px -2px 3px rgb(255 255 255 / 60%),
-      inset 2px 2px 3px rgb(0 0 0 / 60%);
-  }
+.mode-button .normal-button:active {
+  box-shadow:
+    inset -2px -2px 3px rgb(255 255 255 / 60%),
+    inset 2px 2px 3px rgb(0 0 0 / 60%);
 }
