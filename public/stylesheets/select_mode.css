@@ -1,0 +1,112 @@
+body {
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  height: 100dvh;
+  background-image: url(../images/background-image.png);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+[data-screen="select-mode"] {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+[data-screen="select-mode"] h1 {
+  text-align: center;
+  font-size: 3rem;
+  text-shadow: 2px 1px 1px #ffffff;
+}
+
+[data-screen="select-mode"] .radio-group {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  border: 100%;
+  font-size: 2rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 200px;
+  border: 10px solid #733900;
+  background-color: #ffc300;
+  background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgb(0 0 0 / 20%) 30%,
+    rgba(0, 0, 0, 0)
+  );
+  box-shadow:
+    inset 2px 2px 3px rgb(255 255 255 / 60%),
+    inset -2px -2px 3px rgb(0 0 0 / 60%);
+  width: 100%;
+  max-width: 700px;
+}
+
+[data-screen="select-mode"] .radio-group :has(input[type="radio"]) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+[data-screen="select-mode"] .radio-group input[type="radio"] {
+  transform: scale(2);
+}
+
+.mode-button button {
+  border: 0;
+  line-height: 2.5;
+  width: 600px;
+  padding: 0 2rem;
+  font-size: 2rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to top left,
+    rgb(0 0 0 / 20%),
+    rgb(0 0 0 / 20%) 30%,
+    rgb(0 0 0 / 0%)
+  );
+  box-shadow:
+    inset 2px 2px 3px rgb(255 255 255 / 60%),
+    inset -2px -2px 3px rgb(0 0 0 / 60%);
+}
+
+.mode-button .it-button {
+  background-color: #2f99c0;
+}
+
+.mode-button .it-button:hover {
+  background-color: rgb(4, 0, 255);
+}
+
+.mode-button .it-button:active {
+  box-shadow:
+    inset -2px -2px 3px rgb(255 255 255 / 60%),
+    inset 2px 2px 3px rgb(0 0 0 / 60%);
+}
+
+.mode-button .normal-button {
+  background-color: #c02f2f;
+}
+
+.mode-button .normal-button:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+.mode-button .normal-button:active {
+  box-shadow:
+    inset -2px -2px 3px rgb(255 255 255 / 60%),
+    inset 2px 2px 3px rgb(0 0 0 / 60%);
+}
