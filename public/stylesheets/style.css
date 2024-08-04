@@ -10,6 +10,13 @@ body {
   font-size: 50px;
 }
 
+[data-screen="title"] {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .button-container {
   display: flex;
   flex-direction: column;
@@ -27,19 +34,18 @@ button {
   width: 500px;
 }
 
-.volume-button {
+.sound-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-image: url(image.png);
   background-color: aqua;
   border: none;
 }
 
-.volume-button img {
+.sound-button img {
   display: block;
   /* 画像の周囲の余白を削除 */
   width: 100%;
@@ -48,19 +54,18 @@ button {
   /* 画像の高さを自動調整 */
 }
 
-.volume-button-on {
+.sound-button-on {
   position: fixed;
   bottom: 20px;
   left: 20px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-image: url(FiVolume2.png);
   background-color: aqua;
   border: none;
 }
 
-.volume-button-on img {
+.sound-button-on img {
   display: block;
   /* 画像の周囲の余白を削除 */
   width: 100%;
