@@ -1,9 +1,30 @@
-<html>
+<!doctype html>
+<html lang="ja">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>タイピングゲーム</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-    <script type="module" src="/javascripts/main.js"></script>
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <script type="module" src="./javascripts/main.js"></script>
   </head>
+  <body>
+    <div data-screen="title">
+      <h1>タイピングゲーム</h1>
 
-  <body></body>
+      <div class="button-container">
+        <button type="button">ゲームスタート</button>
+        <button type="button">設定</button>
+        <button type="button">クレジット</button>
+      </div>
+
+      <button class="sound-button">
+        <img src="./images/sound-off-button-image.png" alt="音量オフ" />
+      </button>
+
+      <button class="sound-button-on">
+        <img src="./images/sound-on-button-image.png" alt="音量オン" />
+      </button>
+    </div>
+    <!-- <div>タグを閉じる必要があります -->
+  </body>
 </html>
