@@ -147,6 +147,7 @@ h1 {
 .bgm_off {
   margin-top: 40;
   text-align: right;
+  object-fit: cover;
 
   label {
     font:
@@ -159,8 +160,8 @@ h1 {
   }
 
   .styled {
-    border: 0;
-    line-height: 5;
+    max-width: 120%;
+    height: 70px;
     width: 70;
     border-radius: 100px;
     background-color: #29a5ae;
