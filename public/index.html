@@ -6,6 +6,8 @@
     <title>タイピングゲーム</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="/stylesheets/title.css" />
+    <link rel="stylesheet" href="/stylesheets/setting.css" />
+    <link rel="stylesheet" href="/stylesheets/select-mode.css" />
     <script type="module" src="/javascripts/main.js"></script>
   </head>
   <body>
@@ -21,10 +23,93 @@
         <img src="/images/sound-off-button-image.png" alt="音量オフ" />
       </button>
     </div>
-    <div data-screen="setting" class="none">設定</div>
+    <div data-screen="setting">
+      <h2 class="setting-item">設定</h2>
+      <div class="volume-control">
+        <p class="item-name">Volume</p>
+        <input
+          type="range"
+          id="volume"
+          name="volume"
+          min="0"
+          max="100"
+          value="90"
+          step="2"
+        />
+      </div>
+      <div class="volume-control">
+        <p class="item-name">BGM</p>
+        <input
+          type="range"
+          id="BGM"
+          name="BGM"
+          min="0"
+          max="100"
+          value="90"
+          step="2"
+        />
+      </div>
+      <div class="volume-control">
+        <p class="item-name">SE</p>
+        <input
+          type="range"
+          id="SE"
+          name="SE"
+          min="0"
+          max="100"
+          value="90"
+          step="2"
+        />
+      </div>
+    </div>
     <div data-screen="select-mode" class="none">
-      <h1>難易度選択</h1>
-      <button data-action="game">ゲーム開始</button>
+      <div data-screen="select-mode">
+        <h1>難易度</h1>
+        <fieldset class="radio-group">
+          <div>
+            <input
+              type="radio"
+              class="button"
+              id="low"
+              name="drone"
+              value="low"
+              checked
+            />
+            <label for="low">低</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              class="button"
+              id="middle"
+              name="drone"
+              value="middle"
+            />
+            <label for="middle">中</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              class="button"
+              id="high"
+              name="drone"
+              value="high"
+            />
+            <label for="high">高</label>
+          </div>
+        </fieldset>
+        <h1>モード選択</h1>
+        <div class="mode-button">
+          <button class="it-button" data-action="game">
+            IT用語のタイピング
+          </button>
+        </div>
+        <div class="mode-button">
+          <button class="normal-button" data-action="game">
+            ノーマルタイピング
+          </button>
+        </div>
+      </div>
     </div>
     <div data-screen="game" class="none">ゲーム</div>
     <div data-screen="game-result" class="none">ゲーム結果</div>
