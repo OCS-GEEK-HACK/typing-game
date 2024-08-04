@@ -17,15 +17,13 @@ body {
   font-size: 2rem;
 }
 
-.itemName {
+.item-name {
   /* ドラッグによる文字選択禁止 */
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
 
-  font-size: 40;
-  position: relative;
-  bottom: 100px;
+  font-size: 1rem;
 }
 
 [data-screen="setting"] {
