@@ -24,6 +24,7 @@ button {
   border-radius: 0%;
   font-size: 1.6rem;
   border: none;
+  width: 500px;
 }
 
 .volume-button {
@@ -39,6 +40,27 @@ button {
 }
 
 .volume-button img {
+  display: block;
+  /* 画像の周囲の余白を削除 */
+  width: 100%;
+  /* 画像の幅をボタンに合わせる */
+  height: auto;
+  /* 画像の高さを自動調整 */
+}
+
+.volume-button-on {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-image: url(FiVolume2.png);
+  background-color: aqua;
+  border: none;
+}
+
+.volume-button-on img {
   display: block;
   /* 画像の周囲の余白を削除 */
   width: 100%;
