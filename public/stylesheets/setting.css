@@ -8,15 +8,13 @@ body {
   background-position: center;
 }
 
-.settingItem {
+.setting-item {
   /* ドラッグによる文字選択禁止 */
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
 
-  font-size: 50px;
-  position: relative;
-  bottom: 70px;
+  font-size: 2rem;
 }
 
 .itemName {
