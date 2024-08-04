@@ -45,7 +45,5 @@ body {
 }
 
 .volume-control input[type="range"] {
-  position: relative;
-  bottom: 130px;
   width: 50%;
 }
