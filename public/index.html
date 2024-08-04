@@ -1,5 +1,8 @@
-<html>
+<!doctype html>
+<html lang="ja">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>タイピングゲーム</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <script type="module" src="/javascripts/main.js"></script>
@@ -9,16 +12,18 @@
       }
     </style>
   </head>
-
   <body>
     <div data-screen="title" class="">
-      <h1>タイトル</h1>
+      <h1>タイピングゲーム</h1>
       <div>
         <button data-action="start">ゲームスタート</button>
         <button data-action="setting">設定</button>
         <button data-action="terms">利用規約</button>
         <button data-action="credits">クレジット</button>
       </div>
+      <button class="sound-button-on">
+        <img src="./images/sound-on-button-image.png" alt="音量オン" />
+      </button>
     </div>
     <div data-screen="setting" class="none">設定</div>
     <div data-screen="select-mode" class="none">
