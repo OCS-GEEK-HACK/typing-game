@@ -8,6 +8,11 @@ body {
   background-position: center;
 }
 
+.now-score {
+  text-align: center;
+  padding-bottom: 5%;
+}
+
 .zundamon {
   width: 15%;
   margin: auto;
@@ -22,4 +27,33 @@ body {
   display: block;
   position: relative;
   bottom: 27px;
+}
+
+.score {
+  text-align: center;
+  padding-bottom: 5%;
+}
+
+.replay {
+  /* ドラッグ禁止 */
+  -webkit-user-drag: none;
+  padding-top: 2%;
+}
+
+.change-level {
+  /* ドラッグ禁止 */
+  -webkit-user-drag: none;
+  padding-top: 2%;
+}
+
+.share {
+  /* ドラッグ禁止 */
+  -webkit-user-drag: none;
+  padding-right: 5%;
+}
+
+.home {
+  /* ドラッグ禁止 */
+  -webkit-user-drag: none;
+  padding-left: 5%;
 }
