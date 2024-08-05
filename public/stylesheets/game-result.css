@@ -46,10 +46,6 @@ body {
   padding-bottom: 5%;
 }
 
-.hi-score {
-  padding-right: 5%;
-}
-
 .replay {
   /* ドラッグ禁止 */
   -webkit-user-drag: none;
