@@ -1,7 +1,7 @@
 "use strict";
 
 import { GameScreen } from "./modules/screens/game-screen.js";
-import { ScreenManager } from "./modules/screen-maneger.js";
+import { ScreenManager } from "./modules/screen-manager.js";
 import { SelectModeScreen } from "./modules/screens/select-mode-screen.js";
 import { SettingScreen } from "./modules/screens/setting-screen.js";
 import { TitleScreen } from "./modules/screens/title-screen.js";

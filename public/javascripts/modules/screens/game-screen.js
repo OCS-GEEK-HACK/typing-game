@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../screen-maneger').ScreenManager} ScreenManager
+ * @typedef {import('../screen-manager').ScreenManager} ScreenManager
  */
 
 /**
