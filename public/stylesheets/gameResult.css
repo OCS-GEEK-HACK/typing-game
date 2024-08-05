@@ -9,11 +9,17 @@ body {
 }
 
 .now-score {
+  /* ドラッグによる文字選択禁止 */
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   text-align: center;
   padding-bottom: 5%;
 }
 
 .zundamon {
+  /* ドラッグ禁止 */
+  -webkit-user-drag: none;
   width: 15%;
   margin: auto;
   display: block;
@@ -23,6 +29,8 @@ body {
 }
 
 .hukidasi {
+  /* ドラッグ禁止 */
+  -webkit-user-drag: none;
   margin: auto;
   display: block;
   position: relative;
@@ -30,8 +38,16 @@ body {
 }
 
 .score {
+  /* ドラッグによる文字選択禁止 */
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   text-align: center;
   padding-bottom: 5%;
+}
+
+.hi-score {
+  padding-right: 5%;
 }
 
 .replay {
