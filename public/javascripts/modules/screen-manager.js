@@ -7,6 +7,14 @@ export class ScreenManager {
     this.screens = document.querySelectorAll("[data-screen]");
     /** @type {string | null} */
     this.currentScreen = null;
+    /** @type {number} */
+    this.volume = 50;
+    /** @type {number} */
+    this.bgm = 50;
+    /** @type {number} */
+    this.se = 50;
+    /** @type {boolean} */
+    this.mute = false;
   }
 
   /**
