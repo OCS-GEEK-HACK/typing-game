@@ -80,7 +80,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0px;
+gap: 2rem;
   position: relative;
 }
 
