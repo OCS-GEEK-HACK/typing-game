@@ -1,0 +1,129 @@
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100dvh;
+  background-image: url(/images/background-image.png);
+  background-size: cover;
+  background-position: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+[data-screen="game"] {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.game-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.game-header .point {
+  font-size: 75px;
+  background: #ced;
+  border: 1px solid rgb(1, 64, 100);
+  border-radius: 30px;
+  width: 720px;
+  height: 120px;
+  line-height: 120px;
+  color: #000000;
+  text-align: center;
+}
+
+.game-header .timer {
+  font-size: 75px;
+  font-weight: bold;
+  background: #ced;
+  border: 1px solid rgb(1, 64, 100);
+  border-radius: 30px;
+  width: 360px;
+  height: 120px;
+  line-height: 120px;
+  color: #000000;
+  text-align: center;
+}
+
+.game-body {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+}
+
+.game-body .typing {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.game-body .typing .arrow_box {
+  font-size: 50px;
+  flex: 0.3;
+  width: 100%;
+  line-height: 1em;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  text-shadow: 0px 0px 0px #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+  background: #2fc0b4;
+}
+
+.game-body .typing .arrow_box .textline {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  justify-content: center;
+  text-align: center;
+}
+.game-body .typing .arrow_box .textline p {
+  text-align: center;
+  margin: 0;
+}
+
+.game-body .typing .arrow_box::after {
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  pointer-events: none;
+  position: absolute;
+  border-color: rgba(0, 153, 255, 0);
+  border-top-width: 19px;
+  border-bottom-width: 19px;
+  border-left-width: 53px;
+  border-right-width: 53px;
+  margin-top: -19px;
+  border-left-color: #2fc0b4;
+  left: 100%;
+  top: 38%;
+}
+
+.game-body .typing .arrow_box .textline .red {
+  color: red;
+}
+
+.game-body .character {
+  width: 20%;
+}
+.game-body .character img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
