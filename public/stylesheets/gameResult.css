@@ -37,17 +37,16 @@ body {
   bottom: 27px;
 }
 
-.score {
+.scores {
   /* ドラッグによる文字選択禁止 */
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-  text-align: center;
-  padding-bottom: 5%;
-}
-
-.hi-score {
-  padding-right: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8rem 350px;
+  padding-bottom: 7rem;
 }
 
 .replay {
@@ -70,16 +69,12 @@ body {
   text-align: center;
   list-style: none;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 4px 4px;
+  gap: 4px 200px;
 }
 
-.share {
-  /* ドラッグ禁止 */
-  -webkit-user-drag: none;
-}
-
+.share,
 .home {
   /* ドラッグ禁止 */
   -webkit-user-drag: none;
@@ -88,7 +83,7 @@ body {
 .home-share {
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 4px 4px;
+  gap: 4px 400px;
 }
