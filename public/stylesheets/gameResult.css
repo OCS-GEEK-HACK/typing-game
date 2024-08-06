@@ -28,7 +28,7 @@ body {
   top: 20px;
 }
 
-.hukidasi {
+.the-hukidasi {
   /* ドラッグ禁止 */
   -webkit-user-drag: none;
   margin: auto;
@@ -51,25 +51,44 @@ body {
 }
 
 .replay {
-  /* ドラッグ禁止 */
-  -webkit-user-drag: none;
-  padding-top: 2%;
+  border-radius: 30px 30px 30px 30px;
+  background-color: yellow;
+  padding: 10px 30px;
+  width: 20em;
+  height: 5em;
 }
 
-.change-level {
-  /* ドラッグ禁止 */
-  -webkit-user-drag: none;
-  padding-top: 2%;
+.try-game {
+  border-radius: 30px 30px 30px 30px;
+  background-color: yellow;
+  padding: 10px 30px;
+  width: 20em;
+  height: 5em;
+}
+
+.select-button {
+  text-align: center;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 4px 4px;
 }
 
 .share {
   /* ドラッグ禁止 */
   -webkit-user-drag: none;
-  padding-right: 5%;
 }
 
 .home {
   /* ドラッグ禁止 */
   -webkit-user-drag: none;
-  padding-left: 5%;
+}
+
+.home-share {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 4px 4px;
 }

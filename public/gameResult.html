@@ -8,7 +8,9 @@
   <body>
     <img src="./images/zundamon/zundamon-normal.png" class="zundamon" />
 
-    <img src="./images/hukidasi.png" class="hukidasi" />
+    <div class="hukidasi">
+      <img src="./images/hukidasi.png" class="the-hukidasi" />
+    </div>
 
     <h2 class="now-score">スコア</h2>
 
@@ -19,14 +21,16 @@
       </h2>
     </div>
 
-    <div style="text-align: center">
-      <img src="./images/icon/replay.png" class="replay" />
-      <img src="./images/icon/change-level.png" class="change-level" />
+    <div class="select-button">
+      <button type="button" name="Replay" class="replay">
+        <img src="./images/icon/reroad.png" height="15" width="15" />Replay
+      </button>
+      <button type="button" name="Replay" class="try-game">難易度を変更</button>
     </div>
 
-    <div style="text-align: center">
-      <img src="./images/icon/share.png" class="share" />
-      <img src="./images/icon/home.png" class="home" />
-    </div>
+    <ul class="home-share">
+      <li><img src="./images/icon/share.png" class="share" /></li>
+      <li><img src="./images/icon/home.png" class="home" /></li>
+    </ul>
   </body>
 </html>
