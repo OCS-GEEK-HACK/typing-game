@@ -37,3 +37,8 @@
 .volume-control input[type="range"] {
   width: 50%;
 }
+
+.returnButton {
+  width: 0;
+  height: 0;
+}
