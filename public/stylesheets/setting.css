@@ -48,3 +48,8 @@
   background-color: aqua;
   border: none;
 }
+
+[data-screen="setting"] .returnButton:hover {
+  background-color: darkcyan;
+  transform: scale(1.1); /* 拡大して視覚的なフィードバックを提供 */
+}
