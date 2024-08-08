@@ -64,7 +64,7 @@ export class GameScreen {
    */
   startGame() {
     // ゲームのロジックをここに追加
-    console.log(this.words.itMode[0]); //screenManagerのscoreデータ
+    console.log(this.screenManager.score); //screenManagerのscoreデータ
     let Q = this.words.itMode;
     let Q_roman = this.words.itMode; //問題文
     let Q_No = this.Q_No; //問題をランダムで出題する
@@ -72,9 +72,32 @@ export class GameScreen {
     let Q_l = this.Q_l; //計算用の文字の長さ
     let Q_roman_i = this.Q_roman_i; //回答初期値・現在単語どこまで合っているか判定している文字番号
     let Q_roman_l = this.Q_roman_l; //計算用の文字の長さ
-    let count = 0;
+    let count = 0,
+      score = 0,
+      timer = 0,
+      startFlag = false;
 
     window.addEventListener("keydown", push_Keydown);
+
+    let timerset = 60;
+    setInterval(() => {
+      if (timer / 1000 >= timerset) {
+        //秒数(今回の場合は60秒まで))
+        count = 0;
+        startFlag = false;
+        console.log("Goresult");
+        this.screenManager.score = score;
+        console.log(this.screenManager.score);
+        this.showResults();
+      }
+    }, 1);
+    setInterval(() => {
+      if (startFlag) {
+        timer++;
+      }
+      document.getElementById("timer").innerHTML = ""; //時間変更
+      document.getElementById("point").innerHTML = ""; //得点変更
+    }, 1);
 
     function push_Keydown(event) {
       let keyCode = event.key;
@@ -86,6 +109,7 @@ export class GameScreen {
         document.getElementById("word_roman").innerHTML = Q_roman[
           Q_No
         ].key.substring(Q_roman_i, Q_roman_l); //問題を書き出す
+        startFlag = true;
       }
 
       if (Q_roman[Q_No].key.charAt(Q_roman_i) === keyCode) {
@@ -112,6 +136,7 @@ export class GameScreen {
 
         if (Q_roman_l - Q_roman_i === 0) {
           //全部正解したら
+          score += Q_roman_l;
 
           Q_No = Math.floor(Math.random() * Q.length); //問題をランダムで出題する
           Q_i = 0; //回答初期値・現在どこまで合っているか判定している文字番号
@@ -132,11 +157,6 @@ export class GameScreen {
           count++; //正答数加算
           console.log(count + "count");
         }
-      }
-
-      if (count > 2) {
-        console.log("Goresult");
-        this.showResults(); //呼び出せない!?
       }
     }
   }
