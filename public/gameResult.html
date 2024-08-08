@@ -6,31 +6,42 @@
   </head>
 
   <body>
-    <img src="./images/zundamon/zundamon-normal.png" class="zundamon" />
+    <div data-screen="game-result">
+      <div class="game-result-header">
+        <div class="header-top">
+          <div class="zundamon-ilust">
+            <img src="./images/zundamon/zundamon-normal.png" class="zundamon" />
+          </div>
+        </div>
+        <div class="header-bottom">
+          <div class="hukidasi">
+            <p class="hukidasi-text">ナイスタイプ！！</p>
+          </div>
+        </div>
+      </div>
 
-    <div class="hukidasi">
-      <img src="./images/hukidasi.png" class="the-hukidasi" />
+      <div class="game-result-body">
+        <h2 class="now-score">スコア</h2>
+
+        <div class="score">
+          <h2 class="hi-score">ハイスコア</h2>
+          <h2 class="today-score">今回のスコア</h2>
+        </div>
+
+        <div class="select-buttons">
+          <button type="button" name="Replay" class="replay-button">
+            <img src="./images/icon/reroad.png" height="15" width="15" />Replay
+          </button>
+          <button type="button" name="Replay" class="try-game">
+            難易度を変更
+          </button>
+        </div>
+
+        <ul class="home-share">
+          <li><img src="./images/icon/share.png" class="share" /></li>
+          <li><img src="./images/icon/home.png" class="home" /></li>
+        </ul>
+      </div>
     </div>
-
-    <div class="now-score">
-      <h2>スコア</h2>
-    </div>
-
-    <div class="scores">
-      <h2 class="hi-score">ハイスコア</h2>
-      <h2 class="today-score">今回のスコア</h2>
-    </div>
-
-    <div class="select-button">
-      <button type="button" name="Replay" class="replay">
-        <img src="./images/icon/reroad.png" height="15" width="15" />Replay
-      </button>
-      <button type="button" name="Replay" class="try-game">難易度を変更</button>
-    </div>
-
-    <ul class="home-share">
-      <li><img src="./images/icon/share.png" class="share" /></li>
-      <li><img src="./images/icon/home.png" class="home" /></li>
-    </ul>
   </body>
 </html>

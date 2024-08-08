@@ -8,82 +8,130 @@ body {
   background-position: center;
 }
 
-.now-score {
-  /* ドラッグによる文字選択禁止 */
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  text-align: center;
-  padding-bottom: 5%;
-}
-
-.zundamon {
-  /* ドラッグ禁止 */
-  -webkit-user-drag: none;
-  width: 15%;
-  margin: auto;
-  display: block;
-  position: relative;
-  left: 200px;
-  top: 20px;
-}
-
-.the-hukidasi {
-  /* ドラッグ禁止 */
-  -webkit-user-drag: none;
-  margin: auto;
-  display: block;
-  position: relative;
-  bottom: 27px;
-}
-
-.scores {
-  /* ドラッグによる文字選択禁止 */
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
+[data-screen="game-result"] {
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  gap: 8rem 350px;
-  padding-bottom: 7rem;
+  align-items: center;
 }
 
-.replay {
-  border-radius: 30px 30px 30px 30px;
+[data-screen="game-result"] .game-result-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  max-width: 900px;
+  width: 100%;
+}
+
+[data-screen="game-result"] .header-top {
+  display: flex;
+  justify-content: end;
+}
+
+[data-screen="game-result"] .zundamon-ilust {
+  width: 300px;
+}
+
+[data-screen="game-result"] .header-top img {
+  width: 100%;
+  height: auto;
+}
+
+[data-screen="game-result"] .header-bottom {
+  width: 100%;
+  height: 85px;
+}
+
+[data-screen="game-result"] .header-bottom .hukidasi {
+  border: 1px solid #000;
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+[data-screen="game-result"] .header-bottom .hukidasi::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 67%;
+  border-style: solid;
+  border-width: 0 0 20px 40px;
+  border-color: transparent transparent black;
+  translate: -50% -100%;
+  transform: skew(-65deg);
+  transform-origin: bottom;
+}
+
+[data-screen="game-result"] .header-bottom .hukidasi::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 67%;
+  border-style: solid;
+  border-width: 0 0 16.8px 33.5px;
+  border-color: transparent transparent #ffffff;
+  translate: calc(-50% + 1.2px) -100%;
+  transform: skew(-65deg);
+  transform-origin: bottom;
+}
+
+[data-screen="game-result"] .header-bottom .hukidasi-text {
+  margin: 0px;
+}
+
+[data-screen="game-result"] .game-result-body {
+  flex-grow: 1;
+  max-width: 900px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-screen="game-result"] .game-result-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+[data-screen="game-result"] .game-result-body .score {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+[data-screen="game-result"] .game-result-body .select-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+[data-screen="game-result"] .game-result-body button {
+  border-radius: 30px;
   background-color: yellow;
   padding: 10px 30px;
   width: 20em;
   height: 5em;
 }
 
-.try-game {
-  border-radius: 30px 30px 30px 30px;
-  background-color: yellow;
-  padding: 10px 30px;
-  width: 20em;
-  height: 5em;
-}
-
-.select-button {
-  text-align: center;
-  list-style: none;
+[data-screen="game-result"] .game-result-body .replay-button {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 4px 200px;
+  align-items: center;
 }
 
-.share,
-.home {
-  /* ドラッグ禁止 */
-  -webkit-user-drag: none;
-}
-
-.home-share {
-  list-style: none;
+[data-screen="game-result"] .game-result-body .home-share {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 4px 400px;
+  justify-content: space-around;
+  list-style: none;
 }
