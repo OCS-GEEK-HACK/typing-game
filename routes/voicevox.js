@@ -35,6 +35,10 @@ router.get("/", async (req, res, next) => {
     const audioResponse = await fetch(mp3DownloadUrl);
     const audioBuffer = await audioResponse.arrayBuffer(); // arrayBuffer()を使用
 
+    console.log(req.headers.host);
+    console.log(req.headers.origin);
+
+    // res.setHeader('Access-Control-Allow-Origin', req.headers.origin)
     // 音声ファイルを返す
     res.setHeader("Content-Type", "audio/mpeg");
     return res.send(Buffer.from(audioBuffer)); // Bufferに変換して送信
