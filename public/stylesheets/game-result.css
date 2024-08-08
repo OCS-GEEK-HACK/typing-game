@@ -1,13 +1,3 @@
-body {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100dvh;
-  background-image: url(../images/background-image.png);
-  background-size: cover;
-  background-position: center;
-}
-
 [data-screen="game-result"] {
   width: 100%;
   height: 100%;
@@ -15,6 +5,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+[data-screen="game-result"] h2 {
+  margin: 0px;
 }
 
 [data-screen="game-result"] .game-result-header {
@@ -36,7 +30,8 @@ body {
 
 [data-screen="game-result"] .header-top img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 [data-screen="game-result"] .header-bottom {
@@ -135,4 +130,5 @@ body {
   justify-content: space-around;
   list-style: none;
   padding: 0px;
+  margin: 0px;
 }
