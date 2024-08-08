@@ -18,6 +18,16 @@ export class SettingScreen {
    * Initializes the settings screen.
    */
   initialize() {
+    const buttons = document.querySelectorAll(
+      "[data-screen='setting'] button[data-action]",
+    );
+    buttons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const action = event.target.dataset.action;
+        this.handleAction(action);
+      });
+    });
+
     // 設定画面の初期化ロジックをここに追加
     document.getElementById("volume").value = this.screenManager.volume;
     document.getElementById("bgm").value = this.screenManager.bgm;
@@ -62,6 +72,12 @@ export class SettingScreen {
       }
     } else {
       console.error("Unexpected event target type");
+    }
+  }
+
+  handleAction(action) {
+    if (action === "return") {
+      this.screenManager.showScreen("title");
     }
   }
 }
