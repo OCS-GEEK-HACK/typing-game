@@ -1,13 +1,3 @@
-body {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100dvh;
-  background-image: url(../images/background-image.png);
-  background-size: cover;
-  background-position: center;
-}
-
 .setting-item {
   /* ドラッグによる文字選択禁止 */
   -ms-user-select: none;
