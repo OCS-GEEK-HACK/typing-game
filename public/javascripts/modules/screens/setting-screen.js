@@ -18,16 +18,6 @@ export class SettingScreen {
    * Initializes the settings screen.
    */
   initialize() {
-    const audioElement = document.getElementById("btn_audio");
-    const volumeSlider = document.getElementById("volume");
-
-    // スライダーの値をオーディオの音量に反映
-    audioElement.volume = volumeSlider.value;
-
-    // スライダーが動いたときに音量を調整
-    volumeSlider.addEventListener("input", (e) => {
-      audioElement.volume = e.target.value;
-    });
     // 設定画面の初期化ロジックをここに追加
     document.getElementById("volume").value = this.screenManager.volume;
     document.getElementById("bgm").value = this.screenManager.bgm;

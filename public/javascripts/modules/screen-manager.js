@@ -11,10 +11,25 @@ export class ScreenManager {
     this.volume = 50;
     /** @type {number} */
     this.bgm = 50;
+    this.bgmAudio = new Audio("/audio/bgm.mp3");
     /** @type {number} */
     this.se = 50;
     /** @type {boolean} */
-    this.mute = false;
+    this.mute = true;
+  }
+
+  /**
+   * Initializes the title screen by setting up button event listeners.
+   */
+  initialize() {
+    this.showScreen("title");
+    this.bgmAudio.volume = this.bgm * 0.01;
+    this.bgmAudio.muted = this.mute;
+
+    this.bgmAudio.play();
+    this.bgmAudio.addEventListener("timeupdate", () => {
+      console.log(this.bgmAudio.currentTime);
+    });
   }
 
   /**
