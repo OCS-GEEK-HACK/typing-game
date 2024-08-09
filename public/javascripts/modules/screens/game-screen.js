@@ -81,6 +81,7 @@ export class GameScreen {
   initialize() {
     // ゲーム画面の初期化ロジックをここに追加
     this.startGame();
+    this.startGame();
   }
 
   /**
