@@ -37,23 +37,3 @@
 .volume-control input[type="range"] {
   width: 50%;
 }
-
-.returnButton {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: aqua;
-  border: none;
-  cursor: pointer; /* カーソルを変更 */
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease; /* トランジションを追加 */
-}
-
-[data-screen="setting"] .returnButton:hover {
-  background-color: darkcyan;
-  transform: scale(1.1); /* 拡大して視覚的なフィードバックを提供 */
-}
