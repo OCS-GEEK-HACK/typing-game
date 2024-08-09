@@ -15,6 +15,8 @@ export class ScreenManager {
     this.se = 50;
     /** @type {boolean} */
     this.mute = false;
+    /** @type {number} */
+    this.maxiumScore = 0;
   }
 
   /**
