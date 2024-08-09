@@ -24,5 +24,10 @@ export class SelectModeScreen {
       .addEventListener("click", () => {
         this.screenManager.showScreen("game");
       });
+    document
+      .querySelector("[data-screen='select-mode'] [data-action='back']")
+      .addEventListener("click", () => {
+        this.screenManager.showScreen("title");
+      });
   }
 }
