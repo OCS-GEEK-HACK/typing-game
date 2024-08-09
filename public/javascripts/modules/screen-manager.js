@@ -17,8 +17,10 @@ export class ScreenManager {
     this.mute = false;
     /** @type {number} */
     this.maxiumScore = 0;
-    /** @type {number} */
+    /** @type {boolean} */
     this.mode = false; //false:normal,true:it
+    /** @type {number} */
+    this.difficulty = 2; //0:easy,1:normal,2:hard
   }
 
   /**

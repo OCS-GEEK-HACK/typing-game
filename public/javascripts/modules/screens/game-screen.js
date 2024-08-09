@@ -52,6 +52,12 @@ export class GameScreen {
     this.qRomanTypedLength = 0; //回答初期値・現在単語どこまで合っているか判定している文字番号
     this.qRomanLength = this.wordIndex.itMode[this.qNumber].key.length; //計算用の文字の長さ
 
+    this.timerset = [60, 40, 20]; //難易度ごとの秒数
+    this.scoreRate = [1, 3, 7]; //難易度によってスコアの倍率が変化
+    this.timer = this.timerset[this.screenManager.difficulty]; //難易度によって秒数が変化
+    this.startFlag = false;
+    this.isFirst = true;
+
     this.clearfunc = () => {
       if (this.screenManager.currentScreen !== "game") {
         console.log("ゲーム以外の画面");
@@ -61,17 +67,19 @@ export class GameScreen {
       if (this.timer < 0) {
         //秒数(今回の場合は60秒まで))
 
-        this.timer = this.timerset;
+        this.timer = this.timerset[this.screenManager.difficulty];
         this.dataInit();
-        this.currentScore = 0; // 現在のスコア
 
         this.startFlag = false;
+        this.isFirst = false;
         this.screenManager.maxiumScore =
-          this.screenManager < this.currentScore
-            ? this.currentScore
+          this.screenManager <
+          this.currentScore * this.scoreRate[this.screenManager.difficulty]
+            ? this.currentScore * this.scoreRate[this.screenManager.difficulty]
             : this.screenManager.maxiumScore; //この画面のスコアがハイスコアを超えたらハイスコアを上書き
+        this.currentScore = 0; // 現在のスコア
         console.log("Goresult");
-        this.screenManager.showScreen("game-result");
+        this.screenManager.showScreen("geme-result");
       }
     };
 
@@ -83,19 +91,25 @@ export class GameScreen {
       }
       if (this.startFlag) {
         this.timer--;
+      } else {
+        document.getElementById("wordKana").innerHTML =
+          "何かのキーを押してスタート";
+        document.getElementById("wordRoman").innerHTML = "press any key!";
       }
       document.getElementById("timer").innerHTML =
-        String(Math.floor(this.timer / 60)) + ":" + String(this.timer % 60); //時間変更
+        Math.floor(this.timer / 60)
+          .toString()
+          .padStart("2", "0") +
+        ":" +
+        (this.timer % 60).toString().padStart("2", "0"); //時間表示
       document.getElementById("point").innerHTML =
-        String(this.currentScore) + "pt"; //得点変更
+        String(
+          this.currentScore * this.scoreRate[this.screenManager.difficulty],
+        ) + "pt"; //得点表示
       console.log(this.timer);
     };
-
-    this.timerset = 60;
-    this.timer = this.timerset;
-    this.startFlag = false;
     this.drawKana = () => {
-      document.getElementById("word_kana").innerHTML = this.question[
+      document.getElementById("wordKana").innerHTML = this.question[
         this.qNumber
       ].word.substring(0, this.qLength); //問題を書き出す
     };
@@ -116,9 +130,19 @@ export class GameScreen {
           this.question[this.qNumber].key.substring(i, i + 1) +
           "</span>";
       }
-      document.getElementById("word_roman").innerHTML = HTML;
+      document.getElementById("wordRoman").innerHTML = HTML;
     };
     this.dataInit = () => {
+      //ゲーム途中の問題変更時に使う関数
+      this.qNumber = Math.floor(Math.random() * this.question.length); //問題をランダムで出題する
+      this.qTypedLength = 0; //回答初期値・現在どこまで合っているか判定している文字番号
+      this.qLength = this.question[this.qNumber].word.length; //計算用の文字の長さ
+      this.qRomanTypedLength = 0; //回答初期値・現在どこまで合っているか判定している文字番号
+      this.qRomanLength = this.question[this.qNumber].key.length; //計算用の文字の長さ
+    };
+    this.firstInit = () => {
+      //スタートを押してすぐに動く関数
+      this.timer = this.timerset[this.screenManager.difficulty];
       this.qNumber = Math.floor(Math.random() * this.question.length); //問題をランダムで出題する
       this.qTypedLength = 0; //回答初期値・現在どこまで合っているか判定している文字番号
       this.qLength = this.question[this.qNumber].word.length; //計算用の文字の長さ
@@ -155,8 +179,11 @@ export class GameScreen {
 
         return;
       }
+      if (thisObj.isFirst) {
+        thisObj.firstInit();
+        thisObj.isFirst = false;
+      }
       let keyCode = event.key;
-      console.log(keyCode);
       if (
         thisObj.qRomanLength ===
         thisObj.qRomanLength - thisObj.qRomanTypedLength
@@ -164,6 +191,7 @@ export class GameScreen {
         thisObj.drawKana();
         thisObj.drawRoman();
         thisObj.startFlag = true;
+        console.log(keyCode);
       }
 
       if (
@@ -181,9 +209,9 @@ export class GameScreen {
           thisObj.currentScore += thisObj.qRomanLength;
           thisObj.dataInit();
 
-          document.getElementById("word_kana").innerHTML = ""; //入力されていた前回の単語を削除
+          document.getElementById("wordKana").innerHTML = ""; //入力されていた前回の単語を削除
           thisObj.drawKana();
-          document.getElementById("word_roman").innerHTML = ""; //入力されていた前回の単語を削除
+          document.getElementById("wordRoman").innerHTML = ""; //入力されていた前回の単語を削除
           thisObj.drawRoman();
 
           //正答数加算
