@@ -17,3 +17,43 @@ h1 {
 .none {
   display: none !important;
 }
+
+.sound-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: aqua;
+  border: none;
+}
+
+.sound-button img {
+  display: block;
+  /* 画像の周囲の余白を削除 */
+  width: 100%;
+  /* 画像の幅をボタンに合わせる */
+  height: auto;
+  /* 画像の高さを自動調整 */
+}
+
+.sound-button-on {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: aqua;
+  border: none;
+}
+
+.sound-button-on img {
+  display: block;
+  /* 画像の周囲の余白を削除 */
+  width: 100%;
+  /* 画像の幅をボタンに合わせる */
+  height: auto;
+  /* 画像の高さを自動調整 */
+}
