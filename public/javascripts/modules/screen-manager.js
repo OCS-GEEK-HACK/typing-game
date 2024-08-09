@@ -11,11 +11,14 @@ export class ScreenManager {
     this.volume = 50;
     /** @type {number} */
     this.bgm = 50;
+    /** @type {HTMLAudioElement} */
     this.bgmAudio = new Audio("/audio/bgm.mp3");
     /** @type {number} */
     this.se = 50;
     /** @type {boolean} */
     this.mute = true;
+    /** @type {boolean} */
+    this.audioPlayed = false;
   }
 
   /**
@@ -25,10 +28,23 @@ export class ScreenManager {
     this.showScreen("title");
     this.bgmAudio.volume = this.bgm * 0.01;
     this.bgmAudio.muted = this.mute;
+    this.bgmAudio.loop = true;
+    const soundButton = document.getElementById("sound-button");
+    document.getElementById("sound-button").addEventListener("click", () => {
+      if (this.mute) {
+        this.mute = false;
+        this.bgmAudio.muted = this.mute;
+        soundButton.dataset.mute = "on";
+      } else {
+        this.mute = true;
+        this.bgmAudio.muted = this.mute;
+        soundButton.dataset.mute = "off";
+      }
 
-    this.bgmAudio.play();
-    this.bgmAudio.addEventListener("timeupdate", () => {
-      console.log(this.bgmAudio.currentTime);
+      if (!this.audioPlayed) {
+        this.audioPlayed = true;
+        this.bgmAudio.play();
+      }
     });
   }
 
