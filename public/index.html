@@ -175,17 +175,25 @@
         </div>
 
         <div class="select-buttons">
-          <button type="button" name="Replay" class="replay-button">
+          <button type="button" data-action="replay" class="replay-button">
             <img src="/images/icon/reroad.png" height="15" width="15" />Replay
           </button>
-          <button type="button" name="Replay" class="try-game">
+          <button type="button" data-action="change-mode" class="try-game">
             難易度を変更
           </button>
         </div>
 
         <ul class="home-share">
-          <li><img src="/images/icon/share.png" class="share" /></li>
-          <li><img src="/images/icon/home.png" class="home" /></li>
+          <li>
+            <img
+              src="/images/icon/share.png"
+              data-action="share"
+              class="share"
+            />
+          </li>
+          <li>
+            <img src="/images/icon/home.png" data-action="home" class="home" />
+          </li>
         </ul>
       </div>
     </div>

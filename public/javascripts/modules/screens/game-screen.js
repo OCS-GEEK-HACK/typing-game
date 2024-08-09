@@ -2,6 +2,8 @@
  * @typedef {import('../screen-manager').ScreenManager} ScreenManager
  */
 
+import { GameResultScreen } from "./game-result-screen.js";
+
 /**
  * Represents the game screen of the application.
  */
@@ -12,6 +14,9 @@ export class GameScreen {
   constructor(screenManager) {
     /** @type {ScreenManager} */
     this.screenManager = screenManager;
+    /** @type {GameResultScreen} */
+    this.gameResultScreen = new GameResultScreen(screenManager);
+    this.gameResultScreen.initialize();
     this.words = {
       normal: [
         {
@@ -83,8 +88,6 @@ export class GameScreen {
     console.log("生成完了");
     this.audio.volume = this.screenManager.volume * 0.01;
     this.screenManager.showScreen("game");
-    this.currentIndex = 0;
-    this.currentTotal = 0;
     this.startGame();
   }
 
@@ -93,7 +96,8 @@ export class GameScreen {
    */
   startGame() {
     // ゲームのロジックをここに追加
-
+    this.currentIndex = 0;
+    this.currentTotal = 0;
     // 問題の選択
     this.currentQuestion =
       this.questions[Math.floor(Math.random() * this.questions.length)];
@@ -207,6 +211,7 @@ export class GameScreen {
   showResults() {
     this.screenManager.showScreen("game-result");
     // 結果表示のロジックをここに追加
+    // gameResultScreenをいじる
   }
 
   /**
