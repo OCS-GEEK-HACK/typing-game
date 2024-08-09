@@ -83,52 +83,50 @@
       </button>
     </div>
     <div data-screen="select-mode" class="none">
-      <div data-screen="select-mode">
-        <h1>難易度</h1>
-        <fieldset class="radio-group">
-          <div>
-            <input
-              type="radio"
-              class="button"
-              id="low"
-              name="drone"
-              value="low"
-              checked
-            />
-            <label for="low">低</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              class="button"
-              id="middle"
-              name="drone"
-              value="middle"
-            />
-            <label for="middle">中</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              class="button"
-              id="high"
-              name="drone"
-              value="high"
-            />
-            <label for="high">高</label>
-          </div>
-        </fieldset>
-        <h1>モード選択</h1>
-        <div class="mode-button">
-          <button class="it-button" data-action="game">
-            IT用語のタイピング
-          </button>
+      <h1>難易度</h1>
+      <fieldset class="radio-group">
+        <div>
+          <input
+            type="radio"
+            class="button"
+            id="low"
+            name="drone"
+            value="low"
+            checked
+          />
+          <label for="low">低</label>
         </div>
-        <div class="mode-button">
-          <button class="normal-button" data-action="game">
-            ノーマルタイピング
-          </button>
+        <div>
+          <input
+            type="radio"
+            class="button"
+            id="middle"
+            name="drone"
+            value="middle"
+          />
+          <label for="middle">中</label>
         </div>
+        <div>
+          <input
+            type="radio"
+            class="button"
+            id="high"
+            name="drone"
+            value="high"
+          />
+          <label for="high">高</label>
+        </div>
+      </fieldset>
+      <h1>モード選択</h1>
+      <div class="mode-button">
+        <button class="it-button" data-action="game-it">
+          IT用語のタイピング
+        </button>
+      </div>
+      <div class="mode-button">
+        <button class="normal-button" data-action="game-normal">
+          ノーマルタイピング
+        </button>
       </div>
       <button data-action="back" class="backButton" alt="back" value="back">
         戻る
@@ -136,44 +134,16 @@
     </div>
     <div data-screen="game" class="none">
       <div class="game-header">
-        <div class="point" id="point">100,000pt</div>
-        <div class="timer" id="timer">0:00</div>
+        <div class="point" id="point"></div>
+        <div class="timer" id="timer"></div>
       </div>
       <div class="game-body">
         <div class="typing">
           <div class="arrow-box">
             <div class="textline">
-              <p class="word" id="wordKana">ディレクトリトラバーサル</p>
+              <p class="word" id="wordKana"></p>
             </div>
-            <div class="textline" id="wordRoman">
-              <span class="red">D</span>
-              <span class="red">E</span>
-              <span class="red">L</span>
-              <span class="red">I</span>
-              <span class="red">R</span>
-              <span class="red">E</span>
-              <span class="red">K</span>
-              <span class="red">U</span>
-              <span class="red">T</span>
-              <span class="red">O</span>
-              <span class="">R</span>
-              <span class="">I</span>
-              <span class="">T</span>
-              <span class="">O</span>
-              <span class="">R</span>
-              <span class="">I</span>
-              <span class="">T</span>
-              <span class="">O</span>
-              <span class="">R</span>
-              <span class="">A</span>
-              <span class="">B</span>
-              <span class="">A</span>
-              <span class="">-</span>
-              <span class="">S</span>
-              <span class="">A</span>
-              <span class="">R</span>
-              <span class="">U</span>
-            </div>
+            <div class="textline" id="wordRoman"></div>
           </div>
           <div></div>
         </div>

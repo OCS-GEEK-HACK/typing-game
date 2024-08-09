@@ -19,15 +19,31 @@ export class SelectModeScreen {
    */
   initialize() {
     // 難易度選択画面の初期化ロジックをここに追加
-    document
-      .querySelector("[data-action='game']")
-      .addEventListener("click", () => {
-        this.screenManager.showScreen("game");
+    const buttons = document.querySelectorAll(
+      "[data-screen='select-mode'] button[data-action]",
+    );
+    buttons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const action = event.target.dataset.action;
+        this.handleAction(action);
       });
-    document
-      .querySelector("[data-screen='select-mode'] [data-action='back']")
-      .addEventListener("click", () => {
-        this.screenManager.showScreen("title");
-      });
+    });
+  }
+
+  /**
+   * Handles the action based on the button's data-action attribute.
+   *
+   * ボタンクリック時の処理
+   *
+   * @param {string} action - The action to handle.
+   */
+  handleAction(action) {
+    if (action === "game-it") {
+      this.screenManager.gameInit("it");
+    } else if (action === "game-normal") {
+      this.screenManager.gameInit("normal");
+    } else if (action === "back") {
+      this.screenManager.showScreen("title");
+    }
   }
 }

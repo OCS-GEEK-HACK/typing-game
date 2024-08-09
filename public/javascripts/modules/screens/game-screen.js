@@ -12,7 +12,7 @@ export class GameScreen {
   constructor(screenManager) {
     /** @type {ScreenManager} */
     this.screenManager = screenManager;
-    this.wordIndex = {
+    this.words = {
       normal: [
         {
           word: "東京特許許可局",
@@ -27,7 +27,7 @@ export class GameScreen {
           key: "kijimuna-",
         }, // ...
       ],
-      itMode: [
+      it: [
         {
           word: "ディレクトリトラバーサル",
           key: "delirekutoritoraba-saru",
@@ -42,120 +42,49 @@ export class GameScreen {
         }, // ...
       ],
     };
-    this.question = this.screenManager.mode
-      ? this.wordIndex.itMode
-      : this.wordIndex.normal; //this.screenManager.modeでモード分岐
-    this.qNumber = Math.floor(Math.random() * this.question.length); //問題をランダムで出題する //flag? this.words.itMode.length:this.words.normal.length
-    this.currentScore = 0;
-    this.qTypedLength = 0; //回答初期値・現在単語どこまで合っているか判定している文字番号
-    this.qLength = this.wordIndex.itMode[this.qNumber].word.length; //計算用の文字の長さ
-    this.qRomanTypedLength = 0; //回答初期値・現在単語どこまで合っているか判定している文字番号
-    this.qRomanLength = this.wordIndex.itMode[this.qNumber].key.length; //計算用の文字の長さ
+    /**
+     * @type {string[]}
+     */
+    this.audioPaths = [];
+    /** @type {HTMLAudioElement} */
+    this.audio = new Audio();
+    /**
+     * it or normal
+     */
+    this.mode = "";
+    /**
+     * @type {{ word: string; key: string; }[]}
+     */
+    this.questions = [];
+    /**
+     * @type {{ word: string; key: string; } | undefined}
+     */
+    this.currentQuestion = undefined;
+    this.currentIndex = 0;
+    this.currentTotal = 0;
+    this.kanaView = document.getElementById("wordKana");
+    this.romanView = document.getElementById("wordRoman");
+    this.isGenerating = false;
+    this.limitTime = 30000; // ms
 
-    this.timerset = [60, 40, 20]; //難易度ごとの秒数
-    this.scoreRate = [1, 3, 7]; //難易度によってスコアの倍率が変化
-    this.timer = this.timerset[this.screenManager.difficulty]; //難易度によって秒数が変化
-    this.startFlag = false;
-    this.isFirst = true;
-
-    this.clearfunc = () => {
-      if (this.screenManager.currentScreen !== "game") {
-        console.log("ゲーム以外の画面");
-
-        return;
-      }
-      if (this.timer < 0) {
-        //秒数(今回の場合は60秒まで))
-
-        this.timer = this.timerset[this.screenManager.difficulty];
-        this.dataInit();
-
-        this.startFlag = false;
-        this.isFirst = false;
-        this.screenManager.maxiumScore =
-          this.screenManager <
-          this.currentScore * this.scoreRate[this.screenManager.difficulty]
-            ? this.currentScore * this.scoreRate[this.screenManager.difficulty]
-            : this.screenManager.maxiumScore; //この画面のスコアがハイスコアを超えたらハイスコアを上書き
-        this.currentScore = 0; // 現在のスコア
-        console.log("Goresult");
-        this.screenManager.showScreen("geme-result");
-      }
-    };
-
-    this.timerCount = () => {
-      if (this.screenManager.currentScreen !== "game") {
-        console.log("ゲーム以外の画面");
-
-        return;
-      }
-      if (this.startFlag) {
-        this.timer--;
-      } else {
-        document.getElementById("wordKana").innerHTML =
-          "何かのキーを押してスタート";
-        document.getElementById("wordRoman").innerHTML = "press any key!";
-      }
-      document.getElementById("timer").innerHTML =
-        Math.floor(this.timer / 60)
-          .toString()
-          .padStart("2", "0") +
-        ":" +
-        (this.timer % 60).toString().padStart("2", "0"); //時間表示
-      document.getElementById("point").innerHTML =
-        String(
-          this.currentScore * this.scoreRate[this.screenManager.difficulty],
-        ) + "pt"; //得点表示
-      console.log(this.timer);
-    };
-    this.drawKana = () => {
-      document.getElementById("wordKana").innerHTML = this.question[
-        this.qNumber
-      ].word.substring(0, this.qLength); //問題を書き出す
-    };
-    this.drawRoman = () => {
-      let HTML = "";
-      console.log(HTML);
-      for (let i = 0; i < this.qRomanTypedLength; i++) {
-        HTML =
-          HTML +
-          '<span class="red">' +
-          this.question[this.qNumber].key.substring(i, i + 1) +
-          "</span>";
-      }
-      for (let i = this.qRomanTypedLength; i < this.qRomanLength; i++) {
-        HTML =
-          HTML +
-          '<span class="">' +
-          this.question[this.qNumber].key.substring(i, i + 1) +
-          "</span>";
-      }
-      document.getElementById("wordRoman").innerHTML = HTML;
-    };
-    this.dataInit = () => {
-      //ゲーム途中の問題変更時に使う関数
-      this.qNumber = Math.floor(Math.random() * this.question.length); //問題をランダムで出題する
-      this.qTypedLength = 0; //回答初期値・現在どこまで合っているか判定している文字番号
-      this.qLength = this.question[this.qNumber].word.length; //計算用の文字の長さ
-      this.qRomanTypedLength = 0; //回答初期値・現在どこまで合っているか判定している文字番号
-      this.qRomanLength = this.question[this.qNumber].key.length; //計算用の文字の長さ
-    };
-    this.firstInit = () => {
-      //スタートを押してすぐに動く関数
-      this.timer = this.timerset[this.screenManager.difficulty];
-      this.qNumber = Math.floor(Math.random() * this.question.length); //問題をランダムで出題する
-      this.qTypedLength = 0; //回答初期値・現在どこまで合っているか判定している文字番号
-      this.qLength = this.question[this.qNumber].word.length; //計算用の文字の長さ
-      this.qRomanTypedLength = 0; //回答初期値・現在どこまで合っているか判定している文字番号
-      this.qRomanLength = this.question[this.qNumber].key.length; //計算用の文字の長さ
-    };
+    window.addEventListener("keydown", (e) => this.pushKeydown(e));
   }
 
   /**
    * Initializes the game screen.
    */
-  initialize() {
+  async initialize() {
     // ゲーム画面の初期化ロジックをここに追加
+    if (this.isGenerating) return; // 生成中は処理はじく
+    this.questions = this.words[this.mode];
+    console.log("生成中");
+    // 音声生成
+    await this.generateAudio();
+    console.log("生成完了");
+    this.audio.volume = this.screenManager.volume * 0.01;
+    this.screenManager.showScreen("game");
+    this.currentIndex = 0;
+    this.currentTotal = 0;
     this.startGame();
   }
 
@@ -164,60 +93,112 @@ export class GameScreen {
    */
   startGame() {
     // ゲームのロジックをここに追加
-    console.log(this.screenManager.score); //screenManagerのscoreデータ
 
-    window.addEventListener("keydown", push_Keydown);
+    // 問題の選択
+    this.currentQuestion =
+      this.questions[Math.floor(Math.random() * this.questions.length)];
+    // 問題の表示
+    this.updateQuestion();
+    this.updateScoreDisplay();
+    // タイマーの開始
+    this.startTimer();
+  }
 
-    setInterval(this.clearfunc, 1);
+  /**
+   *
+   * @param {KeyboardEvent} event
+   * @returns
+   */
+  pushKeydown(event) {
+    if (this.screenManager.currentScreen !== "game") {
+      console.log("ゲーム以外の画面");
 
-    setInterval(this.timerCount, 1000);
+      return;
+    }
 
-    const thisObj = this;
-    function push_Keydown(event) {
-      if (thisObj.screenManager.currentScreen !== "game") {
-        console.log("ゲーム以外の画面");
+    const keyCode = event.key;
 
-        return;
-      }
-      if (thisObj.isFirst) {
-        thisObj.firstInit();
-        thisObj.isFirst = false;
-      }
-      let keyCode = event.key;
-      if (
-        thisObj.qRomanLength ===
-        thisObj.qRomanLength - thisObj.qRomanTypedLength
-      ) {
-        thisObj.drawKana();
-        thisObj.drawRoman();
-        thisObj.startFlag = true;
-        console.log(keyCode);
-      }
-
-      if (
-        thisObj.question[thisObj.qNumber].key.charAt(
-          thisObj.qRomanTypedLength,
-        ) === keyCode
-      ) {
-        //押したキーが合っていたら
-
-        thisObj.qRomanTypedLength++; //判定する文章に１足す
-        thisObj.drawRoman();
-
-        if (thisObj.qRomanLength - thisObj.qRomanTypedLength === 0) {
-          //全部正解したら
-          thisObj.currentScore += thisObj.qRomanLength;
-          thisObj.dataInit();
-
-          document.getElementById("wordKana").innerHTML = ""; //入力されていた前回の単語を削除
-          thisObj.drawKana();
-          document.getElementById("wordRoman").innerHTML = ""; //入力されていた前回の単語を削除
-          thisObj.drawRoman();
-
-          //正答数加算
+    // あってるかの処理
+    if (Array.from(this.currentQuestion.key)[this.currentIndex] === keyCode) {
+      console.log("正解");
+      // 色変える
+      document.querySelectorAll("#wordRoman span").forEach((ele, index) => {
+        if (index <= this.currentIndex) {
+          ele.classList.add("red");
         }
+      });
+
+      // 最後の文字でなければインクリメント
+      if (this.currentIndex < this.currentQuestion.key.length - 1) {
+        this.currentIndex++;
+      } else {
+        // 最後の文字なので次の問題へ
+        this.currentIndex = 0;
+        // 加算
+        this.currentTotal++;
+        this.updateScoreDisplay();
+        // 問題の選択
+        this.currentQuestion =
+          this.questions[Math.floor(Math.random() * this.questions.length)];
+        // 問題の表示
+        this.updateQuestion();
       }
     }
+  }
+
+  /**
+   * 問題の表示
+   */
+  updateQuestion() {
+    this.kanaView.innerHTML = this.currentQuestion.word;
+    const spanFragment = document.createDocumentFragment();
+    Array.from(this.currentQuestion.key).forEach((key) => {
+      const spanElement = document.createElement("span");
+      spanElement.innerHTML = key;
+      spanFragment.appendChild(spanElement);
+    });
+    this.romanView.innerHTML = "";
+    this.romanView.appendChild(spanFragment);
+
+    // 音声再生
+    this.playAudio();
+  }
+
+  startTimer() {
+    const startTime = Date.now();
+
+    const timerId = setInterval(() => {
+      const elapsedTime = Date.now() - startTime;
+
+      if (elapsedTime >= this.limitTime) {
+        clearInterval(timerId);
+        this.timeUp(); // 制限時間切れの処理を呼び出す
+      } else {
+        this.updateTimerDisplay(this.limitTime - elapsedTime); // 残り時間を表示する更新処理
+      }
+    }, 20); // 20ミリ秒ごとにチェック（画面の更新のため）
+  }
+
+  /**
+   * 制限時間切れの処理
+   */
+  timeUp() {
+    this.audio.pause();
+    this.showResults();
+  }
+
+  /**
+   * 残り時間の表示を更新する処理
+   * @param {number} remainingTime 残り時間（ミリ秒）
+   */
+  updateTimerDisplay(remainingTime) {
+    const timerElement = document.getElementById("timer");
+    timerElement.textContent = (remainingTime / 1000).toFixed(2); // 秒数で表示
+  }
+
+  updateScoreDisplay() {
+    const socreElement = document.getElementById("point");
+    socreElement.innerHTML = this.currentTotal;
   }
 
   /**
@@ -226,5 +207,35 @@ export class GameScreen {
   showResults() {
     this.screenManager.showScreen("game-result");
     // 結果表示のロジックをここに追加
+  }
+
+  /**
+   * 音声の生成
+   */
+  async generateAudio() {
+    this.isGenerating = true;
+    const paths = await Promise.all(
+      this.questions.map(async (question) => {
+        const response = await fetch(`/voicevox?text=${question.word}`, {
+          cache: "force-cache",
+        });
+        const audioBlob = await response.blob();
+        return URL.createObjectURL(audioBlob);
+      }),
+    );
+    console.log(paths);
+    this.audioPaths = paths;
+    this.isGenerating = false;
+  }
+
+  /**
+   * 音声再生
+   */
+  playAudio() {
+    const currentQuestionIndex = this.questions.findIndex(
+      (question) => question.key === this.currentQuestion.key,
+    );
+    this.audio.src = this.audioPaths[currentQuestionIndex];
+    this.audio.play();
   }
 }

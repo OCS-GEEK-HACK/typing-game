@@ -1,6 +1,5 @@
 "use strict";
 
-import { GameScreen } from "./modules/screens/game-screen.js";
 import { ScreenManager } from "./modules/screen-manager.js";
 import { SelectModeScreen } from "./modules/screens/select-mode-screen.js";
 import { SettingScreen } from "./modules/screens/setting-screen.js";
@@ -18,7 +17,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const selectModeScreen = new SelectModeScreen(screenManager);
   selectModeScreen.initialize();
-
-  const gameScreen = new GameScreen(screenManager);
-  gameScreen.initialize();
 });
