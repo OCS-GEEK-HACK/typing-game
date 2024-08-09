@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/stylesheets/game.css" />
     <script type="module" src="/javascripts/main.js"></script>
   </head>
+
   <body>
     <div data-screen="title" class="">
       <h1>ずんだたいぴんぐ</h1>
@@ -24,14 +25,7 @@
         <img src="/images/sound-off-button-image.png" alt="音量オフ" />
       </button>
       <audio id="BGM_audio" autoplay loop src="./images/BGM.mp3"></audio>
-      <input
-        type="range"
-        id="volume"
-        value="0"
-        min="0.0"
-        max="1.0"
-        step="0.1"
-      />
+      <input type="range" id="volume" value="0" min="0" max="100" step="2" />
     </div>
 
     <div data-screen="setting">
