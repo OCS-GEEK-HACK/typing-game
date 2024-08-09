@@ -18,48 +18,19 @@
 [data-screen="title"] button {
   color: #fff;
   background-color: brown;
-  border-radius: 0%;
+  border-radius: 15px; /* 固定値に変更 */
   font-size: 1.6rem;
+  height: 70px;
   border: none;
-  width: 500px;
+  width: 450px;
+  cursor: pointer; /* カーソルを変更 */
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease; /* トランジションを追加 */
+  box-sizing: border-box; /* ボックスモデルを統一 */
 }
 
-[data-screen="title"] .sound-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: aqua;
-  border: none;
-}
-
-[data-screen="title"] .sound-button img {
-  display: block;
-  /* 画像の周囲の余白を削除 */
-  width: 100%;
-  /* 画像の幅をボタンに合わせる */
-  height: auto;
-  /* 画像の高さを自動調整 */
-}
-
-[data-screen="title"] .sound-button-on {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: aqua;
-  border: none;
-}
-
-[data-screen="title"] .sound-button-on img {
-  display: block;
-  /* 画像の周囲の余白を削除 */
-  width: 100%;
-  /* 画像の幅をボタンに合わせる */
-  height: auto;
-  /* 画像の高さを自動調整 */
+[data-screen="title"] button:hover {
+  background-color: darkred;
+  transform: scale(1.05); /* 拡大して視覚的なフィードバックを提供 */
 }

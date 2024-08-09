@@ -11,16 +11,47 @@ export class ScreenManager {
     this.volume = 50;
     /** @type {number} */
     this.bgm = 50;
+    /** @type {HTMLAudioElement} */
+    this.bgmAudio = new Audio("/audio/bgm.mp3");
     /** @type {number} */
     this.se = 50;
-    /** @type {boolean} */
-    this.mute = false;
     /** @type {number} */
     this.maxiumScore = 0;
     /** @type {boolean} */
     this.mode = false; //false:normal,true:it
     /** @type {number} */
     this.difficulty = 2; //0:easy,1:normal,2:hard
+    /** @type {boolean} */
+    this.mute = true;
+    /** @type {boolean} */
+    this.audioPlayed = false;
+  }
+
+  /**
+   * Initializes the title screen by setting up button event listeners.
+   */
+  initialize() {
+    this.showScreen("title");
+    this.bgmAudio.volume = this.bgm * 0.01;
+    this.bgmAudio.muted = this.mute;
+    this.bgmAudio.loop = true;
+    const soundButton = document.getElementById("sound-button");
+    soundButton.addEventListener("click", () => {
+      if (this.mute) {
+        this.mute = false;
+        this.bgmAudio.muted = this.mute;
+        soundButton.dataset.mute = "on";
+      } else {
+        this.mute = true;
+        this.bgmAudio.muted = this.mute;
+        soundButton.dataset.mute = "off";
+      }
+
+      if (!this.audioPlayed) {
+        this.audioPlayed = true;
+        this.bgmAudio.play();
+      }
+    });
   }
 
   /**
