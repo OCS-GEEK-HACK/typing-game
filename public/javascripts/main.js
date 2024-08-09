@@ -8,7 +8,7 @@ import { TitleScreen } from "./modules/screens/title-screen.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const screenManager = new ScreenManager();
-  screenManager.showScreen("title");
+  screenManager.initialize();
 
   const titleScreen = new TitleScreen(screenManager);
   titleScreen.initialize();

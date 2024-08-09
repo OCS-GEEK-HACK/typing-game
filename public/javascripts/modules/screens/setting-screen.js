@@ -62,6 +62,7 @@ export class SettingScreen {
           break;
         case "bgm":
           this.screenManager.bgm = value;
+          this.screenManager.bgmAudio.volume = value * 0.01;
           break;
         case "se":
           this.screenManager.se = value;

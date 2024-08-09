@@ -10,15 +10,25 @@
     />
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="/stylesheets/title.css" />
-    <link rel="stylesheet" href="/stylesheets/setting.css" />
+    <link rel="stylesheet" href="./stylesheets/setting.css" />
     <link rel="stylesheet" href="/stylesheets/select-mode.css" />
     <link rel="stylesheet" href="/stylesheets/game.css" />
     <link rel="stylesheet" href="/stylesheets/game-result.css" />
     <script type="module" src="/javascripts/main.js"></script>
   </head>
+
   <body>
-    <button class="sound-button-on">
-      <img src="/images/sound-off-button-image.png" alt="音量オフ" />
+    <button id="sound-button" data-mute="off">
+      <img
+        src="/images/sound-off-button-image.png"
+        class="sound-button-off"
+        alt="音量オフ"
+      />
+      <img
+        src="/images/sound-on-button-image.png"
+        class="sound-button-on"
+        alt="音量オン"
+      />
     </button>
     <div data-screen="title" class="">
       <h1>ずんだたいぴんぐ</h1>
@@ -29,7 +39,8 @@
         <button data-action="credits">クレジット</button>
       </div>
     </div>
-    <div data-screen="setting">
+
+    <div data-screen="setting" class="none">
       <h2 class="setting-item">設定</h2>
       <div class="volume-control">
         <p class="item-name">Volume</p>
@@ -125,7 +136,7 @@
         </div>
       </div>
     </div>
-    <div data-screen="game">
+    <div data-screen="game" class="none">
       <div class="game-header">
         <div class="point">100,000pt</div>
         <div class="timer">0:00</div>
@@ -173,7 +184,7 @@
         </div>
       </div>
     </div>
-    <div data-screen="game-result">
+    <div data-screen="game-result" class="none">
       <div class="game-result-header">
         <div class="header-top">
           <div class="zundamon-ilust">

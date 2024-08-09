@@ -18,8 +18,7 @@ h1 {
   display: none !important;
 }
 
-.sound-button,
-.sound-button-on {
+#sound-button {
   position: fixed;
   bottom: 20px;
   width: 60px;
@@ -33,23 +32,33 @@ h1 {
     transform 0.3s ease; /* トランジションを追加 */
 }
 
-.sound-button {
+#sound-button {
   right: 20px;
 }
 
-.sound-button-on {
-  right: 20px;
+#sound-button[data-mute="off"] .sound-button-off {
+  display: block;
 }
 
-.sound-button img,
-.sound-button-on img {
+#sound-button[data-mute="off"] .sound-button-on {
+  display: none;
+}
+
+#sound-button[data-mute="on"] .sound-button-on {
+  display: block;
+}
+
+#sound-button[data-mute="on"] .sound-button-off {
+  display: none;
+}
+
+#sound-button img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.sound-button:hover,
-.sound-button-on:hover {
+#sound-button:hover {
   background-color: darkcyan;
   transform: scale(1.1); /* 拡大して視覚的なフィードバックを提供 */
 }
