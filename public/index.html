@@ -3,12 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>タイピングゲーム</title>
+    <title>ずんだたいぴんぐ</title>
+    <meta
+      name="description"
+      content="ずんだもんと一緒に遊べるタイピングゲーム"
+    />
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="/stylesheets/title.css" />
     <link rel="stylesheet" href="/stylesheets/setting.css" />
     <link rel="stylesheet" href="/stylesheets/select-mode.css" />
     <link rel="stylesheet" href="/stylesheets/game.css" />
+    <link rel="stylesheet" href="/stylesheets/game-result.css" />
     <script type="module" src="/javascripts/main.js"></script>
   </head>
   <body>
@@ -16,7 +21,7 @@
       <img src="/images/sound-off-button-image.png" alt="音量オフ" />
     </button>
     <div data-screen="title" class="">
-      <h1>タイピングゲーム</h1>
+      <h1>ずんだたいぴんぐ</h1>
       <div class="button-container">
         <button data-action="start">ゲームスタート</button>
         <button data-action="setting">設定</button>
@@ -168,6 +173,42 @@
         </div>
       </div>
     </div>
-    <div data-screen="game-result" class="none">ゲーム結果</div>
+    <div data-screen="game-result">
+      <div class="game-result-header">
+        <div class="header-top">
+          <div class="zundamon-ilust">
+            <img src="/images/zundamon/zundamon-normal.png" class="zundamon" />
+          </div>
+        </div>
+        <div class="header-bottom">
+          <div class="hukidasi">
+            <p class="hukidasi-text">ナイスタイプ！！</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-result-body">
+        <h2 class="now-score">スコア</h2>
+
+        <div class="score">
+          <h2 class="hi-score">ハイスコア</h2>
+          <h2 class="today-score">今回のスコア</h2>
+        </div>
+
+        <div class="select-buttons">
+          <button type="button" name="Replay" class="replay-button">
+            <img src="/images/icon/reroad.png" height="15" width="15" />Replay
+          </button>
+          <button type="button" name="Replay" class="try-game">
+            難易度を変更
+          </button>
+        </div>
+
+        <ul class="home-share">
+          <li><img src="/images/icon/share.png" class="share" /></li>
+          <li><img src="/images/icon/home.png" class="home" /></li>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>
