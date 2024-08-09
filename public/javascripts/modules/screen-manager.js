@@ -30,7 +30,7 @@ export class ScreenManager {
     this.bgmAudio.muted = this.mute;
     this.bgmAudio.loop = true;
     const soundButton = document.getElementById("sound-button");
-    document.getElementById("sound-button").addEventListener("click", () => {
+    soundButton.addEventListener("click", () => {
       if (this.mute) {
         this.mute = false;
         this.bgmAudio.muted = this.mute;
