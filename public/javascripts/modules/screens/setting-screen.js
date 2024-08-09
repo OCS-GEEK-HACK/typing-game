@@ -75,6 +75,13 @@ export class SettingScreen {
     }
   }
 
+  /**
+   * Handles the action based on the button's data-action attribute.
+   *
+   * ボタンクリック時の処理
+   *
+   * @param {string} action - The action to handle.
+   */
   handleAction(action) {
     if (action === "return") {
       this.screenManager.showScreen("title");
