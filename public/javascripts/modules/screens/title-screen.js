@@ -27,6 +27,10 @@ export class TitleScreen {
         this.handleAction(action);
       });
     });
+    window.addEventListener("click", (e) => {
+      const audioElement = document.querySelector("audio");
+      audioElement.play();
+    });
   }
 
   /**

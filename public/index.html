@@ -6,7 +6,7 @@
     <title>タイピングゲーム</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="/stylesheets/title.css" />
-    <link rel="stylesheet" href="/stylesheets/setting.css" />
+    <link rel="stylesheet" href="./stylesheets/setting.css" />
     <link rel="stylesheet" href="/stylesheets/select-mode.css" />
     <link rel="stylesheet" href="/stylesheets/game.css" />
     <script type="module" src="/javascripts/main.js"></script>
@@ -23,7 +23,17 @@
       <button class="sound-button-on">
         <img src="/images/sound-off-button-image.png" alt="音量オフ" />
       </button>
+      <audio id="BGM_audio" autoplay loop src="./images/BGM.mp3"></audio>
+      <input
+        type="range"
+        id="volume"
+        value="0"
+        min="0.0"
+        max="1.0"
+        step="0.1"
+      />
     </div>
+
     <div data-screen="setting">
       <h2 class="setting-item">設定</h2>
       <div class="volume-control">
