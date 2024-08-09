@@ -34,39 +34,3 @@
   background-color: darkred;
   transform: scale(1.05); /* 拡大して視覚的なフィードバックを提供 */
 }
-
-[data-screen="title"] .sound-button,
-[data-screen="title"] .sound-button-on {
-  position: fixed;
-  bottom: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: aqua;
-  border: none;
-  cursor: pointer; /* カーソルを変更 */
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease; /* トランジションを追加 */
-}
-
-[data-screen="title"] .sound-button {
-  right: 20px;
-}
-
-[data-screen="title"] .sound-button-on {
-  left: 20px;
-}
-
-[data-screen="title"] .sound-button img,
-[data-screen="title"] .sound-button-on img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-[data-screen="title"] .sound-button:hover,
-[data-screen="title"] .sound-button-on:hover {
-  background-color: darkcyan;
-  transform: scale(1.1); /* 拡大して視覚的なフィードバックを提供 */
-}

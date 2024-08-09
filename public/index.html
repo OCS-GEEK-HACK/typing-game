@@ -18,6 +18,9 @@
   </head>
 
   <body>
+    <button class="sound-button-on">
+      <img src="/images/sound-off-button-image.png" alt="音量オフ" />
+    </button>
     <div data-screen="title" class="">
       <h1>ずんだたいぴんぐ</h1>
       <div class="button-container">
@@ -26,9 +29,6 @@
         <button data-action="terms">利用規約</button>
         <button data-action="credits">クレジット</button>
       </div>
-      <button class="sound-button-on">
-        <img src="/images/sound-off-button-image.png" alt="音量オフ" />
-      </button>
     </div>
 
     <div data-screen="setting">
@@ -69,6 +69,14 @@
           step="2"
         />
       </div>
+      <button
+        data-action="return"
+        class="returnButton"
+        alt="return"
+        value="return"
+      >
+        戻る
+      </button>
     </div>
     <div data-screen="select-mode" class="none">
       <div data-screen="select-mode">
