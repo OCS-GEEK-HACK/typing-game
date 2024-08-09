@@ -58,6 +58,10 @@ export class GameScreen {
      */
     this.mode = "";
     /**
+     * difficulty
+     */
+    this.difficulty = "";
+    /**
      * @type {{ word: string; key: string; }[]}
      */
     this.questions = [];

@@ -38,10 +38,16 @@ export class SelectModeScreen {
    * @param {string} action - The action to handle.
    */
   handleAction(action) {
+    // 現在の難易度取得
+    const difficulty = document.querySelector(
+      'input[name="drone"]:checked',
+    ).value;
+    console.log(difficulty);
+
     if (action === "game-it") {
-      this.screenManager.gameInit("it");
+      this.screenManager.gameInit("it", difficulty);
     } else if (action === "game-normal") {
-      this.screenManager.gameInit("normal");
+      this.screenManager.gameInit("normal"), difficulty;
     } else if (action === "back") {
       this.screenManager.showScreen("title");
     }

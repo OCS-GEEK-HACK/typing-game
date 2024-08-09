@@ -21,18 +21,6 @@ export class ScreenManager {
     this.mute = true;
     /** @type {boolean} */
     this.audioPlayed = false;
-    // /** @type {number} */
-    // this.maxiumScore = 0;
-    // /**
-    //  * @type {boolean}
-    //  * false: normal, true: it
-    //  * */
-    // this.mode = false;
-    // /**
-    //  * @type {number}
-    //  * 0: easy, 1: normal, 2: hard
-    //  * */
-    // this.difficulty = 2;
     /** @type {GameScreen} */
     this.gameScreen = new GameScreen(this);
   }
@@ -82,8 +70,9 @@ export class ScreenManager {
     });
   }
 
-  async gameInit(mode) {
+  async gameInit(mode, difficulty) {
     this.gameScreen.mode = mode;
+    this.gameScreen.difficulty = difficulty;
     // ゲームの初期化
     await this.gameScreen.initialize();
   }
