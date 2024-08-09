@@ -18,42 +18,38 @@ h1 {
   display: none !important;
 }
 
-.sound-button {
+.sound-button,
+.sound-button-on {
   position: fixed;
   bottom: 20px;
-  right: 20px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
   background-color: aqua;
   border: none;
+  cursor: pointer; /* カーソルを変更 */
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease; /* トランジションを追加 */
 }
 
-.sound-button img {
-  display: block;
-  /* 画像の周囲の余白を削除 */
-  width: 100%;
-  /* 画像の幅をボタンに合わせる */
-  height: auto;
-  /* 画像の高さを自動調整 */
+.sound-button {
+  right: 20px;
 }
 
 .sound-button-on {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: aqua;
-  border: none;
+  right: 20px;
 }
 
+.sound-button img,
 .sound-button-on img {
   display: block;
-  /* 画像の周囲の余白を削除 */
   width: 100%;
-  /* 画像の幅をボタンに合わせる */
   height: auto;
-  /* 画像の高さを自動調整 */
+}
+
+.sound-button:hover,
+.sound-button-on:hover {
+  background-color: darkcyan;
+  transform: scale(1.1); /* 拡大して視覚的なフィードバックを提供 */
 }

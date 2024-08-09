@@ -47,6 +47,10 @@
   border-radius: 50%;
   background-color: aqua;
   border: none;
+  cursor: pointer; /* カーソルを変更 */
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease; /* トランジションを追加 */
 }
 
 [data-screen="setting"] .returnButton:hover {
