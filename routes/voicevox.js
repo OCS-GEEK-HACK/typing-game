@@ -15,6 +15,9 @@ router.get("/", async (req, res, next) => {
     // 外部APIを呼び出し
     const apiResponse = await fetch(
       `https://api.tts.quest/v3/voicevox/synthesis?text=${text}&speaker=3&key=${apiKey}`,
+      {
+        cache: "force-cache",
+      },
     );
     const apiData = await apiResponse.json();
 
