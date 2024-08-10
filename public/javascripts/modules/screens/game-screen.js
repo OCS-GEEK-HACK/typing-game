@@ -71,10 +71,13 @@ export class GameScreen {
     this.currentQuestion = undefined;
     this.currentIndex = 0;
     this.currentTotal = 0;
+    this.highScore = 0;
     this.kanaView = document.getElementById("wordKana");
     this.romanView = document.getElementById("wordRoman");
     this.isGenerating = false;
-    this.limitTime = 30000; // ms
+    this.limitTime = 60000; // ms
+    this.limitValues = { low: 60000, middle: 40000, high: 20000 }; // ms
+    this.scoreRate = { low: 4, middle: 9, high: 21 }; //
 
     window.addEventListener("keydown", (e) => this.pushKeydown(e));
   }
@@ -105,6 +108,8 @@ export class GameScreen {
     // 問題の選択
     this.currentQuestion =
       this.questions[Math.floor(Math.random() * this.questions.length)];
+    //制限時間の更新
+    this.limitTime = this.limitValues[this.difficulty];
     // 問題の表示
     this.updateQuestion();
     this.updateScoreDisplay();
@@ -143,7 +148,8 @@ export class GameScreen {
         // 最後の文字なので次の問題へ
         this.currentIndex = 0;
         // 加算
-        this.currentTotal++;
+        this.currentTotal +=
+          this.currentQuestion.key.length * this.scoreRate[this.difficulty];
         this.updateScoreDisplay();
         // 問題の選択
         this.currentQuestion =
@@ -213,9 +219,20 @@ export class GameScreen {
    * Shows the game results.
    */
   showResults() {
+    this.updateScores();
     this.screenManager.showScreen("game-result");
     // 結果表示のロジックをここに追加
     // gameResultScreenをいじる
+  }
+
+  /**
+   * ハイスコアと今回のスコアをscreenmManagerの変数(?)に格納
+   */
+  updateScores() {
+    this.highScore =
+      this.highScore < this.currentTotal ? this.currentTotal : this.highScore;
+    console.log("highScore:" + this.highScore);
+    console.log("currentTotal:" + this.currentTotal);
   }
 
   /**
