@@ -71,6 +71,7 @@ export class GameScreen {
     this.currentQuestion = undefined;
     this.currentIndex = 0;
     this.currentTotal = 0;
+    this.highScore = 0;
     this.kanaView = document.getElementById("wordKana");
     this.romanView = document.getElementById("wordRoman");
     this.isGenerating = false;
@@ -108,7 +109,7 @@ export class GameScreen {
     this.currentQuestion =
       this.questions[Math.floor(Math.random() * this.questions.length)];
     //制限時間の更新
-    this.updateTimer();
+    this.limitTime = this.limitValues[this.difficulty];
     // 問題の表示
     this.updateQuestion();
     this.updateScoreDisplay();
@@ -157,13 +158,6 @@ export class GameScreen {
         this.updateQuestion();
       }
     }
-  }
-
-  /**
-   * 難易度によって制限時間変更
-   */
-  updateTimer() {
-    this.limitTime = this.limitValues[this.difficulty];
   }
 
   /**
@@ -235,14 +229,10 @@ export class GameScreen {
    * ハイスコアと今回のスコアをscreenmManagerの変数(?)に格納
    */
   updateScores() {
-    const screenManager = this.screenManager;
-    screenManager.thisTimeScore = this.currentTotal;
-    screenManager.highScore =
-      screenManager.highScore < screenManager.thisTimeScore
-        ? screenManager.thisTimeScore
-        : screenManager.highScore;
-    console.log("highScore:" + this.screenManager.highScore);
-    console.log("thisTimeScore:" + this.screenManager.thisTimeScore);
+    this.highScore =
+      this.highScore < this.currentTotal ? this.currentTotal : this.highScore;
+    console.log("highScore:" + this.highScore);
+    console.log("currentTotal:" + this.currentTotal);
   }
 
   /**

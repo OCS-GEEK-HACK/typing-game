@@ -17,10 +17,6 @@ export class ScreenManager {
     this.bgmAudio = new Audio("/audio/bgm.mp3");
     /** @type {number} */
     this.se = 50;
-    /** @type {Number} */
-    this.thisTimeScore = 0;
-    /** @type {Number} */
-    this.highScore = 0;
     /** @type {boolean} */
     this.mute = true;
     /** @type {boolean} */
