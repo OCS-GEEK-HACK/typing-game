@@ -221,6 +221,7 @@ export class GameScreen {
   showResults() {
     this.updateScores();
     this.screenManager.showScreen("game-result");
+    this.gameResultScreen.showResult();
     // 結果表示のロジックをここに追加
     // gameResultScreenをいじる
   }
