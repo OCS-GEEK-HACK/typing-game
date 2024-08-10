@@ -45,4 +45,9 @@ export class GameResultScreen {
       alert("シャアモーダル未実装");
     }
   }
+
+  showResult() {
+    const nowScore = document.getElementById("score");
+    nowScore.innerHTML = this.screenManager.gameScreen.currentTotal;
+  }
 }
