@@ -42,7 +42,16 @@ export class GameResultScreen {
     } else if (action === "home") {
       this.screenManager.showScreen("title");
     } else if (action === "share") {
-      alert("シャアモーダル未実装");
+      console.log("modal");
+      const modal = document.querySelector(".share-modal"),
+        overlay = document.querySelector(".modal-overlay");
+      modal.classList.remove("none");
+      overlay.classList.remove("none");
+    } else if (action === "close-modal") {
+      const modal = document.querySelector(".share-modal"),
+        overlay = document.querySelector(".modal-overlay");
+      modal.classList.add("none");
+      overlay.classList.add("none");
     }
   }
 }

@@ -133,10 +133,21 @@
   margin: 0px;
 }
 
+[data-screen="game-result"] .game-result-body .modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.6;
+  z-index: 0;
+}
+
 [data-screen="game-result"] .game-result-body .share-modal {
   border: 1px solid #000;
   border-radius: 30px;
-  width: 60%;
+  width: 45%;
   height: 60%;
   background-color: #ffffff;
   display: flex;
@@ -146,6 +157,7 @@
   position: absolute;
   inset: 0;
   margin: auto;
+  z-index: 1;
 }
 
 [data-screen="game-result"] .game-result-body .share-contents {
@@ -169,6 +181,6 @@
   display: flex;
   position: absolute;
   top: -1%;
-  left: 90%;
+  left: 83%;
   width: 50%;
 }

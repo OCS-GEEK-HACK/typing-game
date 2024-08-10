@@ -189,6 +189,7 @@
               src="/images/icon/share.png"
               data-action="share"
               class="share"
+              id="share-the-modal"
             />
           </li>
           <li>
@@ -196,17 +197,22 @@
           </li>
         </ul>
 
-        <div class="share-modal">
+        <div class="share-modal none">
           <div class="share-contents">share</div>
           <ul class="sns-icon">
             <img src="images/icon/LINE_icon.png" class="line" />
             <img src="images/icon/Twitter_icon.png" class="Twitter" />
             <img src="images/icon/Facebook_icon.png" class="facebook" />
           </ul>
-          <div class="cancel-icon">
-            <img src="images/icon/cancel.png" />
+          <div class="cancel-icon" id="close-the-modal" class="close-modal">
+            <img
+              src="images/icon/cancel.png"
+              data-action="close-modal"
+              class="close-modal"
+            />
           </div>
         </div>
+        <div class="modal-overlay none"></div>
       </div>
     </div>
   </body>
