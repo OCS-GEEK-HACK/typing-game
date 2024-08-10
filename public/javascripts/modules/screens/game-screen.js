@@ -53,6 +53,8 @@ export class GameScreen {
     this.audioPaths = [];
     /** @type {HTMLAudioElement} */
     this.audio = new Audio();
+    this.socresound = new Audio("/audio/score-sound.mp3");
+    this.typesound = new Audio("/audio/typeSound.mp3");
     /**
      * it or normal
      */
@@ -94,6 +96,8 @@ export class GameScreen {
     await this.generateAudio();
     console.log("生成完了");
     this.audio.volume = this.screenManager.volume * 0.01;
+    this.socresound.volume = this.screenManager.se * 0.01;
+    this.typesound.volume = this.screenManager.se * 0.01;
     this.screenManager.showScreen("game");
     this.startGame();
   }
@@ -158,6 +162,9 @@ export class GameScreen {
         this.updateQuestion();
       }
     }
+
+    this.typesound.currentTime = 0;
+    this.typesound.play();
   }
 
   /**
@@ -220,10 +227,16 @@ export class GameScreen {
    */
   showResults() {
     this.updateScores();
+    this.resultSound();
     this.screenManager.showScreen("game-result");
     this.gameResultScreen.showResult();
     // 結果表示のロジックをここに追加
     // gameResultScreenをいじる
+  }
+
+  resultSound() {
+    this.socresound.currentTime = 0; // 効果音をリセット
+    this.socresound.play(); // 効果音を再生
   }
 
   /**
