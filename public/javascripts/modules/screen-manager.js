@@ -23,12 +23,22 @@ export class ScreenManager {
     this.audioPlayed = false;
     /** @type {GameScreen} */
     this.gameScreen = new GameScreen(this);
+
+    this.clickSound = new Audio("/audio/click-sound-mp3");
   }
 
   /**
    * Initializes the title screen by setting up button event listeners.
    */
   initialize() {
+    document
+      .querySelector("[data-screen='title'] button[data-action=start]")
+      .addEventListener("click", (event) => {
+        this.clickSound.currentTime = 0; // 効果音をリセット（連続クリックに対応）
+        this.clickSound.muted = true; // 効果音を再生
+        this.clickSound.play();
+      });
+
     this.showScreen("title");
     this.bgmAudio.volume = this.bgm * 0.01;
     this.bgmAudio.muted = this.mute;
