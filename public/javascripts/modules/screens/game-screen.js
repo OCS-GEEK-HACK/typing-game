@@ -15,10 +15,6 @@ export class GameScreen {
     /** @type {ScreenManager} */
     this.screenManager = screenManager;
     /** @type {GameResultScreen} */
-
-    this.socresound = new Audio("/audio/score-sound.mp3");
-    this.typesound = new Audio("/audio/typeSound.mp3");
-
     this.gameResultScreen = new GameResultScreen(screenManager);
     this.gameResultScreen.initialize();
     this.words = {
@@ -75,10 +71,13 @@ export class GameScreen {
     this.currentQuestion = undefined;
     this.currentIndex = 0;
     this.currentTotal = 0;
+    this.highScore = 0;
     this.kanaView = document.getElementById("wordKana");
     this.romanView = document.getElementById("wordRoman");
     this.isGenerating = false;
-    this.limitTime = 30000; // ms
+    this.limitTime = 60000; // ms
+    this.limitValues = { low: 60000, middle: 40000, high: 20000 }; // ms
+    this.scoreRate = { low: 4, middle: 9, high: 21 }; //
 
     window.addEventListener("keydown", (e) => this.pushKeydown(e));
   }
@@ -87,9 +86,11 @@ export class GameScreen {
    * Initializes the game screen.
    */
   async initialize() {
-    if (this.isGenerating) return;
+    // ゲーム画面の初期化ロジックをここに追加
+    if (this.isGenerating) return; // 生成中は処理はじく
     this.questions = this.words[this.mode];
     console.log("生成中");
+    // 音声生成
     await this.generateAudio();
     console.log("生成完了");
     this.audio.volume = this.screenManager.volume * 0.01;
@@ -97,58 +98,71 @@ export class GameScreen {
     this.startGame();
   }
 
+  /**
+   * Starts the game.
+   */
   startGame() {
+    // ゲームのロジックをここに追加
     this.currentIndex = 0;
     this.currentTotal = 0;
+    // 問題の選択
     this.currentQuestion =
       this.questions[Math.floor(Math.random() * this.questions.length)];
+    //制限時間の更新
+    this.limitTime = this.limitValues[this.difficulty];
+    // 問題の表示
     this.updateQuestion();
     this.updateScoreDisplay();
+    // タイマーの開始
     this.startTimer();
   }
 
+  /**
+   *
+   * @param {KeyboardEvent} event
+   * @returns
+   */
   pushKeydown(event) {
     if (this.screenManager.currentScreen !== "game") {
       console.log("ゲーム以外の画面");
+
       return;
     }
 
     const keyCode = event.key;
 
+    // あってるかの処理
     if (Array.from(this.currentQuestion.key)[this.currentIndex] === keyCode) {
       console.log("正解");
+      // 色変える
       document.querySelectorAll("#wordRoman span").forEach((ele, index) => {
         if (index <= this.currentIndex) {
           ele.classList.add("red");
         }
       });
 
-      this.typesound.currentTime = 0;
-      this.typesound
-        .play()
-        .catch((error) =>
-          console.error("タイプ音の再生に失敗しました:", error),
-        );
-
+      // 最後の文字でなければインクリメント
       if (this.currentIndex < this.currentQuestion.key.length - 1) {
         this.currentIndex++;
       } else {
+        // 最後の文字なので次の問題へ
         this.currentIndex = 0;
-        this.currentTotal++;
+        // 加算
+        this.currentTotal +=
+          this.currentQuestion.key.length * this.scoreRate[this.difficulty];
         this.updateScoreDisplay();
+        // 問題の選択
         this.currentQuestion =
           this.questions[Math.floor(Math.random() * this.questions.length)];
+        // 問題の表示
         this.updateQuestion();
       }
-    } else {
-      // タイプミス音の追加（例えば、ミスした場合に音を鳴らす）
-      this.typesound.currentTime = 0;
-      this.typesound
-        .play()
-        .catch((error) => console.error("ミス音の再生に失敗しました:", error));
     }
   }
 
+  /**
+   * 問題の表示
+   */
   updateQuestion() {
     this.kanaView.innerHTML = this.currentQuestion.word;
     const spanFragment = document.createDocumentFragment();
@@ -159,6 +173,8 @@ export class GameScreen {
     });
     this.romanView.innerHTML = "";
     this.romanView.appendChild(spanFragment);
+
+    // 音声再生
     this.playAudio();
   }
 
@@ -170,22 +186,28 @@ export class GameScreen {
 
       if (elapsedTime >= this.limitTime) {
         clearInterval(timerId);
-        this.timeUp();
+        this.timeUp(); // 制限時間切れの処理を呼び出す
       } else {
-        this.updateTimerDisplay(this.limitTime - elapsedTime);
+        this.updateTimerDisplay(this.limitTime - elapsedTime); // 残り時間を表示する更新処理
       }
-    }, 20);
+    }, 20); // 20ミリ秒ごとにチェック（画面の更新のため）
   }
 
+  /**
+   * 制限時間切れの処理
+   */
   timeUp() {
     this.audio.pause();
-    this.resultSound();
     this.showResults();
   }
 
+  /**
+   * 残り時間の表示を更新する処理
+   * @param {number} remainingTime 残り時間（ミリ秒）
+   */
   updateTimerDisplay(remainingTime) {
     const timerElement = document.getElementById("timer");
-    timerElement.textContent = (remainingTime / 1000).toFixed(2);
+    timerElement.textContent = (remainingTime / 1000).toFixed(2); // 秒数で表示
   }
 
   updateScoreDisplay() {
@@ -193,16 +215,30 @@ export class GameScreen {
     socreElement.innerHTML = this.currentTotal;
   }
 
+  /**
+   * Shows the game results.
+   */
   showResults() {
+    this.updateScores();
     this.screenManager.showScreen("game-result");
+    this.gameResultScreen.showResult();
+    // 結果表示のロジックをここに追加
+    // gameResultScreenをいじる
   }
 
-  resultSound() {
-    this.screenManager.showScreen("game-result"); // 修正済み
-    this.socresound.currentTime = 0; // 効果音をリセット
-    this.socresound.play(); // 効果音を再生
+  /**
+   * ハイスコアと今回のスコアをscreenmManagerの変数(?)に格納
+   */
+  updateScores() {
+    this.highScore =
+      this.highScore < this.currentTotal ? this.currentTotal : this.highScore;
+    console.log("highScore:" + this.highScore);
+    console.log("currentTotal:" + this.currentTotal);
   }
 
+  /**
+   * 音声の生成
+   */
   async generateAudio() {
     this.isGenerating = true;
     const paths = await Promise.all(
@@ -219,6 +255,9 @@ export class GameScreen {
     this.isGenerating = false;
   }
 
+  /**
+   * 音声再生
+   */
   playAudio() {
     const currentQuestionIndex = this.questions.findIndex(
       (question) => question.key === this.currentQuestion.key,

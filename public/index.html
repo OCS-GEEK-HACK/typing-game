@@ -168,10 +168,18 @@
 
       <div class="game-result-body">
         <h2 class="now-score">スコア</h2>
+        <h3 id="score"></h3>
 
         <div class="score">
-          <h2 class="hi-score">ハイスコア</h2>
-          <h2 class="today-score">今回のスコア</h2>
+          <div>
+            <h2 class="hi-score">ハイスコア</h2>
+            <h3 id="hi-score"></h3>
+          </div>
+
+          <div>
+            <h2 class="today-score">今回のスコア</h2>
+            <h3 id="today-score"></h3>
+          </div>
         </div>
 
         <div class="select-buttons">
@@ -189,12 +197,30 @@
               src="/images/icon/share.png"
               data-action="share"
               class="share"
+              id="share-the-modal"
             />
           </li>
           <li>
             <img src="/images/icon/home.png" data-action="home" class="home" />
           </li>
         </ul>
+
+        <div class="share-modal none">
+          <div class="share-contents">share</div>
+          <ul class="sns-icon">
+            <img src="images/icon/LINE_icon.png" class="line" />
+            <img src="images/icon/Twitter_icon.png" class="Twitter" />
+            <img src="images/icon/Facebook_icon.png" class="facebook" />
+          </ul>
+          <div class="cancel-icon" id="close-the-modal" class="close-modal">
+            <img
+              src="images/icon/cancel.png"
+              data-action="close-modal"
+              class="close-modal"
+            />
+          </div>
+        </div>
+        <div class="modal-overlay none"></div>
       </div>
     </div>
   </body>

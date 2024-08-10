@@ -9,6 +9,8 @@ export class GameResultScreen {
   constructor(screenManager) {
     /** @type {ScreenManager} */
     this.screenManager = screenManager;
+    (this.modal = document.querySelector(".share-modal")),
+      (this.overlay = document.querySelector(".modal-overlay"));
   }
 
   /**
@@ -42,7 +44,20 @@ export class GameResultScreen {
     } else if (action === "home") {
       this.screenManager.showScreen("title");
     } else if (action === "share") {
-      alert("シャアモーダル未実装");
+      this.modal.classList.remove("none");
+      this.overlay.classList.remove("none");
+    } else if (action === "close-modal") {
+      this.modal.classList.add("none");
+      this.overlay.classList.add("none");
     }
+  }
+
+  showResult() {
+    const nowScore = document.getElementById("score");
+    const todayScore = document.getElementById("today-score");
+    const hiScore = document.getElementById("hi-score");
+    nowScore.innerHTML = this.screenManager.gameScreen.currentTotal;
+    todayScore.innerHTML = this.screenManager.gameScreen.currentTotal;
+    hiScore.innerHTML = this.screenManager.gameScreen.highScore;
   }
 }

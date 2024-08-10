@@ -8,7 +8,17 @@
 }
 
 [data-screen="game-result"] h2 {
-  margin: 0px;
+  font-size: 80%;
+  margin: 0;
+}
+
+[data-screen="game-result"] h3 {
+  font-size: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 0.2em;
+  margin: 0;
 }
 
 [data-screen="game-result"] .game-result-header {
@@ -131,4 +141,57 @@
   list-style: none;
   padding: 0px;
   margin: 0px;
+}
+
+[data-screen="game-result"] .game-result-body .modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+[data-screen="game-result"] .game-result-body .share-modal {
+  border: 1px solid #000;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 900px;
+  height: 60%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  z-index: 1;
+}
+
+[data-screen="game-result"] .game-result-body .share-contents {
+  display: flex;
+  position: absolute;
+  top: 15%; /* 上部に配置 */
+  left: 50%; /* 水平方向の中央 */
+  transform: translateX(-50%); /* 中央に調整 */
+}
+
+[data-screen="game-result"] .game-result-body .sns-icon {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0px;
+  margin-top: 18%;
+}
+
+[data-screen="game-result"] .game-result-body .cancel-icon {
+  display: flex;
+  position: absolute;
+  top: -1%;
+  left: 83%;
+  width: 50%;
 }
