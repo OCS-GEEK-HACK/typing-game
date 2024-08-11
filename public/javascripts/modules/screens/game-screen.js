@@ -60,13 +60,13 @@ export class GameScreen {
   /**
    * Initializes the game screen.
    */
-  async initialize() {
+  initialize() {
     // ゲーム画面の初期化ロジックをここに追加
     if (this.isGenerating) return; // 生成中は処理はじく
     this.questions = this.words[this.mode];
     console.log("生成中");
     // 音声生成
-    await this.generateAudio();
+    this.generateAudio();
     console.log("生成完了");
     this.audio.volume = this.screenManager.volume * 0.01;
     this.socresound.volume = this.screenManager.se * 0.01;
@@ -225,19 +225,11 @@ export class GameScreen {
   /**
    * 音声の生成
    */
-  async generateAudio() {
+  generateAudio() {
     this.isGenerating = true;
-    const paths = await Promise.all(
-      this.questions.map(async (question) => {
-        const response = await fetch(`/voicevox?text=${question.word}`, {
-          cache: "force-cache",
-        });
-        const audioBlob = await response.blob();
-        return URL.createObjectURL(audioBlob);
-      }),
+    this.audioPaths = this.questions.map(
+      (question) => `/voicevox?text=${question.word}`,
     );
-    console.log(paths);
-    this.audioPaths = paths;
     this.isGenerating = false;
   }
 

@@ -70,10 +70,10 @@ export class ScreenManager {
     });
   }
 
-  async gameInit(mode, difficulty) {
+  gameInit(mode, difficulty) {
     this.gameScreen.mode = mode;
     this.gameScreen.difficulty = difficulty;
     // ゲームの初期化
-    await this.gameScreen.initialize();
+    this.gameScreen.initialize();
   }
 }
