@@ -1,3 +1,32 @@
+# このプロジェクトについて
+
+`ずんだタイピング`はWEB版VOICEVOX APIによる問題文の読み上げ機能を実装した
+唯一無二のタイピングゲームです。
+
+作品はデプロイしているので誰でも利用可能です。
+
+- デプロイ先: <br>
+  https://zunda-typing.onrender.com/
+- スライド: <br>
+  https://www.canva.com/design/DAGNLb-avsI/XncNa5V31OsXPKhs_FR40w/view?utm_content=DAGNLb-avsI&utm_campaign=designshare&utm_medium=link&utm_source=editor
+
+# 使用言語、技術
+
+フロントエンド
+
+- JavaScript
+- HTML
+- CSS
+
+バックエンド
+
+- Express
+- VOICEVOX
+
+デプロイ
+
+- Render
+
 # 実行方法
 
 ライブラリをインストール
