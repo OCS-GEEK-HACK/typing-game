@@ -23,6 +23,13 @@ router.get("/", async (req, res, next) => {
 
     const { mp3DownloadUrl, audioStatusUrl } = apiData;
 
+    // URLがundefinedの場合はエラーを返す
+    if (!mp3DownloadUrl || !audioStatusUrl) {
+      console.log(mp3DownloadUrl, audioStatusUrl);
+
+      return res.status(500).send("Failed to retrieve audio URLs from API.");
+    }
+
     while (true) {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
