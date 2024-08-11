@@ -73,7 +73,7 @@ export class GameScreen {
     this.currentQuestion = undefined;
     this.currentIndex = 0;
     this.currentTotal = 0;
-    this.highScore = 0;
+    this.highScore = localStorage.getItem("highscore");
     this.kanaView = document.getElementById("wordKana");
     this.romanView = document.getElementById("wordRoman");
     this.isGenerating = false;
@@ -247,6 +247,7 @@ export class GameScreen {
       this.highScore < this.currentTotal ? this.currentTotal : this.highScore;
     console.log("highScore:" + this.highScore);
     console.log("currentTotal:" + this.currentTotal);
+    localStorage.setItem("highscore", this.highScore);
   }
 
   /**
