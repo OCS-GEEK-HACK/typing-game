@@ -81,6 +81,10 @@ export class GameScreen {
           word: "フリップフロップ",
           key: "furippufuroppu",
         }, // ...
+        {
+          word: "暗号方式",
+          key: "anngouhousiki",
+        }, // ...
       ],
     };
     /**
