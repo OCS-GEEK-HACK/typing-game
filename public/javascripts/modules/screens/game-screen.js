@@ -31,6 +31,22 @@ export class GameScreen {
           word: "キジムナー",
           key: "kijimuna-",
         }, // ...
+        {
+          word: "ずんだもち",
+          key: "zunndamoti",
+        }, // ...
+        {
+          word: "ウォーターサーバー",
+          key: "who-ta-sa-ba-",
+        }, // ...
+        {
+          word: "交響曲歌曲協奏曲",
+          key: "koukyoukyokukakyokukyousoukyoku",
+        }, // ...
+        {
+          word: "ティッシュペーパー",
+          key: "thissyupe-pa-",
+        }, // ...
       ],
       it: [
         {
@@ -44,6 +60,26 @@ export class GameScreen {
         {
           word: "アイリス認証",
           key: "airisuninshou",
+        }, // ...
+        {
+          word: "クラウドコンピューティング",
+          key: "kuraudokonpyu-tingu",
+        }, // ...
+        {
+          word: "キャッシュメモリ",
+          key: "kyassyumemori",
+        }, // ...
+        {
+          word: "パリティチェック",
+          key: "parithityakku",
+        }, // ...
+        {
+          word: "メモリモジュール",
+          key: "memorimojyu-ru",
+        }, // ...
+        {
+          word: "フリップフロップ",
+          key: "furippufuroppu",
         }, // ...
       ],
     };
