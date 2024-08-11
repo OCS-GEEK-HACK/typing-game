@@ -5,9 +5,12 @@
 
 作品はデプロイしているので誰でも利用可能です。
 
-- デプロイ先: <br>
+- デプロイ先:
+
   https://zunda-typing.onrender.com/
-- スライド: <br>
+
+- スライド:
+
   https://www.canva.com/design/DAGNLb-avsI/XncNa5V31OsXPKhs_FR40w/view?utm_content=DAGNLb-avsI&utm_campaign=designshare&utm_medium=link&utm_source=editor
 
 # 使用言語、技術
