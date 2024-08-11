@@ -73,9 +73,11 @@ export class GameScreen {
     this.currentQuestion = undefined;
     this.currentIndex = 0;
     this.currentTotal = 0;
-    this.highScore = !localStorage.getItem("highscore")
-      ? 0
-      : Number(localStorage.getItem("highscore"));
+    this.highScore =
+      !localStorage.getItem("highscore") ||
+      isNaN(localStorage.getItem("highscore"))
+        ? 0
+        : parseInt(localStorage.getItem("highscore"));
     this.kanaView = document.getElementById("wordKana");
     this.romanView = document.getElementById("wordRoman");
     this.isGenerating = false;
