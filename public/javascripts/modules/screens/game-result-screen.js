@@ -9,8 +9,8 @@ export class GameResultScreen {
   constructor(screenManager) {
     /** @type {ScreenManager} */
     this.screenManager = screenManager;
-    (this.modal = document.querySelector(".share-modal")),
-      (this.overlay = document.querySelector(".modal-overlay"));
+    this.modal = document.querySelector(".share-modal");
+    this.overlay = document.querySelector(".modal-overlay");
   }
 
   /**
