@@ -47,7 +47,7 @@ export class SelectModeScreen {
     if (action === "game-it") {
       this.screenManager.gameInit("it", difficulty);
     } else if (action === "game-normal") {
-      this.screenManager.gameInit("normal"), difficulty;
+      this.screenManager.gameInit("normal", difficulty);
     } else if (action === "back") {
       this.screenManager.showScreen("title");
     }
