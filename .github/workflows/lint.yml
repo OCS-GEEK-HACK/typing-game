@@ -33,11 +33,10 @@ jobs:
         with:
           node-version: "latest"
           cache: npm
-          run: node --version
       - name: Install node_modules
         run: |
+          node --version
           npm install
-
       - name: Run ESLint
         run: npx eslint .
           --config eslint.config.mjs
