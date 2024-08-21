@@ -1,6 +1,8 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
 import prettierPlugin from "eslint-plugin-prettier";
+import eslintPluginUnusedImports from "eslint-plugin-unused-imports";
+import eslintPluginSecurity from "eslint-plugin-security";
 
 export default [
   // JavaScriptファイルの設定
@@ -12,6 +14,8 @@ export default [
     },
     plugins: {
       prettier: prettierPlugin,
+      "unused-imports": eslintPluginUnusedImports,
+      security: eslintPluginSecurity,
     },
     rules: {
       "prettier/prettier": [
@@ -27,6 +31,7 @@ export default [
       eqeqeq: ["error", "always"],
       "no-console": "off",
       "no-unused-vars": ["warn", { args: "none" }],
+      "unused-imports/no-unused-imports": "warn",
     },
   },
   // ブラウザ環境の設定
