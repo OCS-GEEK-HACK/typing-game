@@ -67,7 +67,7 @@ export class GameScreen {
   initialize() {
     // ゲーム画面の初期化ロジックをここに追加
     if (this.isGenerating) return; // 生成中は処理はじく
-    this.questions = this.words[this.mode];
+    this.questions = [...this.words[this.mode]];
     console.log("生成中");
     // 音声生成
     this.generateAudio();
@@ -132,6 +132,17 @@ export class GameScreen {
         this.currentTotal +=
           this.currentQuestion.key.length * this.scoreRate[this.difficulty];
         this.updateScoreDisplay();
+
+        // 正解した問題を削除
+        this.questions = this.questions.filter(
+          (question) => question.key !== this.currentQuestion.key,
+        );
+
+        // すべての問題を出題し終えたらリセット
+        if (this.questions.length === 0) {
+          this.questions = [...this.words[this.mode]]; // 最初の状態に戻す
+        }
+
         // 問題の選択
         this.currentQuestion =
           this.questions[Math.floor(Math.random() * this.questions.length)];
@@ -207,8 +218,6 @@ export class GameScreen {
     this.resultSound();
     this.screenManager.showScreen("game-result");
     this.gameResultScreen.showResult();
-    // 結果表示のロジックをここに追加
-    // gameResultScreenをいじる
   }
 
   resultSound() {
