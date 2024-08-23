@@ -12,13 +12,13 @@ router.get("/", async (req, res, next) => {
   }
 
   try {
+    const url = new URL("https://api.tts.quest/v3/voicevox/synthesis");
+    url.searchParams.set("text", text);
+    url.searchParams.set("speaker", "3");
+    url.searchParams.set("key", apiKey);
+
     // 外部APIを呼び出し
-    const apiResponse = await fetch(
-      `https://api.tts.quest/v3/voicevox/synthesis?text=${text}&speaker=3&key=${apiKey}`,
-      {
-        cache: "force-cache",
-      },
-    );
+    const apiResponse = await fetch(url, { cache: "force-cache" });
     const apiData = await apiResponse.json();
 
     const { mp3DownloadUrl, audioStatusUrl } = apiData;
