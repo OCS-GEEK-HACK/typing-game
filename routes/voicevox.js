@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 // 環境変数からAPIキーを取得
 const apiKey = process.env.API_KEY;
 
