@@ -53,7 +53,6 @@ export class GameScreen {
         : parseInt(localStorage.getItem("highscore"));
     this.kanaView = document.getElementById("wordKana");
     this.romanView = document.getElementById("wordRoman");
-    this.isGenerating = false;
     this.limitTime = 60000; // ms
     this.limitValues = { low: 60000, middle: 40000, high: 20000 }; // ms
     this.scoreRate = { low: 4, middle: 9, high: 21 }; //
@@ -66,12 +65,6 @@ export class GameScreen {
    */
   initialize() {
     // ゲーム画面の初期化ロジックをここに追加
-    if (this.isGenerating) return; // 生成中は処理はじく
-    this.questions = [...this.words[this.mode]];
-    console.log("生成中");
-    // 音声生成
-    this.generateAudio();
-    console.log("生成完了");
     this.audio.volume = this.screenManager.volume * 0.01;
     this.socresound.volume = this.screenManager.se * 0.01;
     this.typesound.volume = this.screenManager.se * 0.01;
@@ -86,6 +79,9 @@ export class GameScreen {
     // ゲームのロジックをここに追加
     this.currentIndex = 0;
     this.currentTotal = 0;
+    this.questions = [...this.words[this.mode]];
+    // 音声生成
+    this.generateAudio();
     // 問題の選択
     this.currentQuestion =
       this.questions[Math.floor(Math.random() * this.questions.length)];
@@ -134,13 +130,18 @@ export class GameScreen {
         this.updateScoreDisplay();
 
         // 正解した問題を削除
-        this.questions = this.questions.filter(
-          (question) => question.key !== this.currentQuestion.key,
+        const questionIndex = this.questions.findIndex(
+          (question) => question.key === this.currentQuestion.key,
         );
+        if (questionIndex !== -1) {
+          this.questions.splice(questionIndex, 1);
+          this.audioPaths.splice(questionIndex, 1); // audioPaths も対応する位置で削除
+        }
 
         // すべての問題を出題し終えたらリセット
         if (this.questions.length === 0) {
           this.questions = [...this.words[this.mode]]; // 最初の状態に戻す
+          this.generateAudio(); // 新たに問題をリセットしたら音声も再生成
         }
 
         // 問題の選択
@@ -240,11 +241,9 @@ export class GameScreen {
    * 音声の生成
    */
   generateAudio() {
-    this.isGenerating = true;
     this.audioPaths = this.questions.map(
       (question) => `/voicevox?text=${question.word}`,
     );
-    this.isGenerating = false;
   }
 
   /**
