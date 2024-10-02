@@ -37,6 +37,10 @@ export class GameScreen {
      */
     this.difficulty = "";
     /**
+     * speaker
+     */
+    this.speaker = "";
+    /**
      * @type {{ word: string; key: string; }[]}
      */
     this.questions = [];
@@ -79,7 +83,7 @@ export class GameScreen {
     // ゲームのロジックをここに追加
     this.currentIndex = 0;
     this.currentTotal = 0;
-    this.questions = [...this.words[this.mode]];
+    this.questions = [...this.words[this.difficulty][this.mode]];
     // 音声生成
     this.generateAudio();
     // 問題の選択
@@ -140,7 +144,7 @@ export class GameScreen {
 
         // すべての問題を出題し終えたらリセット
         if (this.questions.length === 0) {
-          this.questions = [...this.words[this.mode]]; // 最初の状態に戻す
+          this.questions = [...this.words[this.difficulty][this.mode]]; // 最初の状態に戻す
           this.generateAudio(); // 新たに問題をリセットしたら音声も再生成
         }
 
@@ -242,7 +246,7 @@ export class GameScreen {
    */
   generateAudio() {
     this.audioPaths = this.questions.map(
-      (question) => `/voicevox?text=${question.word}`,
+      (question) => `/voicevox?text=${question.word}&speaker=${this.speaker}`,
     );
   }
 

@@ -70,9 +70,10 @@ export class ScreenManager {
     });
   }
 
-  gameInit(mode, difficulty) {
+  gameInit(mode, difficulty, speaker) {
     this.gameScreen.mode = mode;
     this.gameScreen.difficulty = difficulty;
+    this.gameScreen.speaker = speaker;
     // ゲームの初期化
     this.gameScreen.initialize();
   }
