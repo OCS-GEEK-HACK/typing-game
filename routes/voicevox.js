@@ -7,6 +7,7 @@ const apiKey = process.env.API_KEY;
 router.get("/", async (req, res, next) => {
   // 'text' パラメータを取得
   const { text } = req.query;
+  const { speaker } = req.query;
   if (!text) {
     return res.status(400).send("text parameter is required");
   }
@@ -14,7 +15,7 @@ router.get("/", async (req, res, next) => {
   try {
     const url = new URL("https://api.tts.quest/v3/voicevox/synthesis");
     url.searchParams.set("text", text);
-    url.searchParams.set("speaker", "3");
+    url.searchParams.set("speaker", speaker);
     url.searchParams.set("key", apiKey);
 
     // 外部APIを呼び出し

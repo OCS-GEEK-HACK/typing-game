@@ -42,12 +42,13 @@ export class SelectModeScreen {
     const difficulty = document.querySelector(
       'input[name="drone"]:checked',
     ).value;
-    console.log(difficulty);
+    const speaker = document.querySelector('input[name="speakers"]:checked').id;
+    console.log(speaker);
 
     if (action === "game-it") {
-      this.screenManager.gameInit("it", difficulty);
+      this.screenManager.gameInit("it", difficulty, speaker);
     } else if (action === "game-normal") {
-      this.screenManager.gameInit("normal", difficulty);
+      this.screenManager.gameInit("normal", difficulty, speaker);
     } else if (action === "back") {
       this.screenManager.showScreen("title");
     }
