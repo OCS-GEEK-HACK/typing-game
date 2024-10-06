@@ -5,10 +5,7 @@ export const data = {
         word: "宝石",
         key: "houseki",
       },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
+
       {
         word: "ずんだもち",
         key: "zunndamoti",
@@ -77,6 +74,14 @@ export const data = {
         word: "春日部",
         key: "kasukabe",
       },
+      {
+        word: "高架橋橋脚",
+        key: "koukakyoukoukyaku",
+      },
+      {
+        word: "竹藪に竹立てかけた",
+        key: "takeyabunitaketatekaketa",
+      },
     ],
     it: [
       {
@@ -123,6 +128,38 @@ export const data = {
         word: "セキュリティー",
         key: "sekyurithi-",
       },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "サーバー",
+        key: "sa-ba-",
+      },
+      {
+        word: "データマイニング",
+        key: "de-tamaininngu",
+      },
+      {
+        word: " ビッグデータ",
+        key: "biggude-ta",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "スーパーアプリ",
+        key: "su-pa-apuri",
+      },
+      {
+        word: "データドリブン",
+        key: "de-tadoribunn",
+      },
+      {
+        word: "メタバース",
+        key: "metaba-su",
+      },
     ],
   },
   middle: {
@@ -146,6 +183,66 @@ export const data = {
       {
         word: "イマジネーション",
         key: "imajine-syonn",
+      },
+      {
+        word: "肩たたき券",
+        key: "katatatakikenn",
+      },
+      {
+        word: "ただ暖かい",
+        key: "tadaatatakai",
+      },
+      {
+        word: "魔術修行中",
+        key: "majyutusyugyoutyu",
+      },
+      {
+        word: "よぼよぼ病",
+        key: "yoboyobobyou",
+      },
+      {
+        word: "パン壁",
+        key: "pannkabe",
+      },
+      {
+        word: "第一著者 第二著者",
+        key: "daiitityosya dainityosya",
+      },
+      {
+        word: "社長 支社長 司書室長",
+        key: "syatyou sisyatyou sisyositutyou",
+      },
+      {
+        word: "お耳 おめめ おでこ",
+        key: "omimi omeme odeko",
+      },
+      {
+        word: "にゃんこ 子にゃんこ 孫にゃんこ",
+        key: "nyannko konyannko mogonyannko",
+      },
+      {
+        word: "赤カピバラ 青カピバラ 黄カピバラ",
+        key: "akakapibare aokapibara kikapibara",
+      },
+      {
+        word: "右耳に ミニニキビ",
+        key: "migimimini mininikibi",
+      },
+      {
+        word: "生なまず 生なまこ 生なめこ",
+        key: "namanamazu namanamako namanameko",
+      },
+      {
+        word: "親亀 子亀 孫亀",
+        key: "oyakame kogame mogokame",
+      },
+      {
+        word: "新人歌手 新春シャンソンショー",
+        key: "sinnjinnkasyu sinnsyunnsannsonsyo-",
+      },
+      {
+        word: "魔術師 魔術 修行中",
+        key: "majyutusi majyutu syugyoutyu",
       },
     ],
     it: [
@@ -181,6 +278,50 @@ export const data = {
         word: "オルタナティブデータ",
         key: "orutanathibude-ta",
       },
+      {
+        word: "ブロックチェーン",
+        key: "burokkutye-nn",
+      },
+      {
+        word: "ファイブジー",
+        key: "faibuji-",
+      },
+      {
+        word: "生成エーアイ(AI)",
+        key: "seiseie-ai",
+      },
+      {
+        word: "エーピーアイ(API)",
+        key: "e-pi-ai",
+      },
+      {
+        word: "トータルエクスペリエンス",
+        key: "to-taruekusuperiennsu",
+      },
+      {
+        word: "エッジコンピューティング",
+        key: "ejjikonnpyu-thinngu",
+      },
+      {
+        word: "データドリブン",
+        key: "de-tadoribunn",
+      },
+      {
+        word: "シーユーアイ（CUI）",
+        key: "si-yu-ai",
+      },
+      {
+        word: "テキストエディター",
+        key: "tekisutoedhita-",
+      },
+      {
+        word: "高級言語",
+        key: "koukyuugenngo",
+      },
+      {
+        word: "低級言語",
+        key: "teikyuugenngo",
+      },
     ],
   },
   high: {
@@ -204,6 +345,66 @@ export const data = {
       {
         word: "東京特許許可局",
         key: "toukyoutokkyokyokakyoku",
+      },
+      {
+        word: "鹿もカモシカの仲間だ、しかしあしかは仲間ではない",
+        key: "sikamokamosikanonakamada、sikasiasikahanakamadehanai",
+      },
+      {
+        word: "買ったかたたき機高かった",
+        key: "kattakatatakikenntakakatta",
+      },
+      {
+        word: "すももも桃も桃のうち",
+        key: "sumomomomomomomomomonouti",
+      },
+      {
+        word: "隣の客はよく柿食う客だ",
+        key: "tonarinokyakuhayokukakkikuukyakuda",
+      },
+      {
+        word: "レモンもメロンもペロンと食べた",
+        key: "remonnmomeronnmoperonntotabeta",
+      },
+      {
+        word: "三塁打 勝利の走者一掃",
+        key: "sannruida sousyanoissou",
+      },
+      {
+        word: "バナナの謎は まだ謎なのだぞ",
+        key: "banananonazohamadanazonanodazo",
+      },
+      {
+        word: "よぼよぼ病 予防病院 よぼよぼ病予防病",
+        key: "yoboyobobyou yoboubyouinn ",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
       },
     ],
     it: [
@@ -238,6 +439,54 @@ export const data = {
       {
         word: "ナレッジマネジメント",
         key: "nerejjimanejimennto",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
+      },
+      {
+        word: "キジムナー",
+        key: "kijimuna-",
       },
     ],
   },
