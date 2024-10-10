@@ -41,6 +41,14 @@ export class GameScreen {
      */
     this.speaker = "";
     /**
+     * speaker path
+     */
+    this.speaker_img = {
+      3: "/images/zunda_normal.png",
+      8: "/images/tsumugi_normal.png",
+      2: "/images/metan_normal.png",
+    };
+    /**
      * @type {{ word: string; key: string; }[]}
      */
     this.questions = [];
@@ -57,6 +65,7 @@ export class GameScreen {
         : parseInt(localStorage.getItem("highscore"));
     this.kanaView = document.getElementById("wordKana");
     this.romanView = document.getElementById("wordRoman");
+    this.charaView = document.getElementById("chara_img");
     this.limitTime = 60000; // ms
     this.limitValues = { low: 60000, middle: 40000, high: 20000 }; // ms
     this.scoreRate = { low: 4, middle: 9, high: 21 }; //
@@ -94,6 +103,8 @@ export class GameScreen {
     // 問題の表示
     this.updateQuestion();
     this.updateScoreDisplay();
+    // キャラ絵初期化
+    this.initCharacter();
     // タイマーの開始
     this.startTimer();
   }
@@ -259,5 +270,12 @@ export class GameScreen {
     );
     this.audio.src = this.audioPaths[currentQuestionIndex];
     this.audio.play();
+  }
+
+  /**
+   * 表示キャラクターの更新
+   */
+  initCharacter() {
+    this.charaView.src = this.speaker_img[this.speaker];
   }
 }
