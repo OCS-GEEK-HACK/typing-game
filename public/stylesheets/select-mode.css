@@ -123,3 +123,29 @@
 .speakers input {
   display: none;
 }
+
+input[type="radio"] {
+  transform: scale(2); /* サイズを1.5倍に拡大 */
+  margin-right: 10px; /* ボタンとラベルの間に余白を追加 */
+}
+
+[data-screen="select-mode"] .character-select {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  border: 100%;
+  font-size: 2rem;
+  text-align: center;
+  color: #000000;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 200px;
+  border: 10px solid #733900;
+  background-color: #ffc300;
+  background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgb(0 0 0 / 20%) 30%,
+    rgba(0, 0, 0, 0)
+  );
+}
