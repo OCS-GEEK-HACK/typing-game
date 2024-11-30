@@ -89,8 +89,8 @@ export const data = {
         key: "sofutoweakaihatu",
       },
       {
-        word: "ハードウェア",
-        key: "ha-dowea",
+        word: "ハードウェア開発",
+        key: "ha-doweakaihatu",
       },
       {
         word: "バグ",
@@ -407,10 +407,6 @@ export const data = {
       {
         word: "ナレッジマネジメント",
         key: "nerejjimanejimennto",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
       },
     ],
   },
