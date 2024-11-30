@@ -210,11 +210,11 @@ export const data = {
       },
       {
         word: "にゃんこ 子にゃんこ 孫にゃんこ",
-        key: "nyannko konyannko mogonyannko",
+        key: "nyannko konyannko magonyannko",
       },
       {
         word: "赤カピバラ 青カピバラ 黄カピバラ",
-        key: "akakapibare aokapibara kikapibara",
+        key: "akakapibara aokapibara kikapibara",
       },
       {
         word: "右耳に ミニニキビ",
