@@ -80,10 +80,16 @@
   height: auto;
   justify-content: center;
   text-align: center;
+  white-space: pre;
 }
+
 .game-body .typing .arrow-box .textline p {
   text-align: center;
   margin: 0;
+}
+
+.game-body .typing .arrow-box .textline span {
+  text-decoration: underline;
 }
 
 .game-body .typing .arrow-box::after {
