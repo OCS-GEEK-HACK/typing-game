@@ -129,12 +129,14 @@
 
 input[type="radio"] {
   transform: scale(2); /* サイズを1.5倍に拡大 */
-  margin-right: 10px; /* ボタンとラベルの間に余白を追加 */
+  margin: 0;
 }
 
 [data-screen="select-mode"] .character-select {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
   align-items: center;
   padding: 1rem;
   font-size: 2rem;
@@ -150,4 +152,9 @@ input[type="radio"] {
     rgb(0 0 0 / 20%) 30%,
     rgba(0, 0, 0, 0)
   );
+}
+
+.select-character {
+  /* display: inline-flex; */
+  display: block;
 }
