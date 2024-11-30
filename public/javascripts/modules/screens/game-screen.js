@@ -115,6 +115,7 @@ export class GameScreen {
    * @returns
    */
   pushKeydown(event) {
+    event.preventDefault();
     if (this.screenManager.currentScreen !== "game") {
       console.log("ゲーム以外の画面");
 
