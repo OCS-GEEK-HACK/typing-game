@@ -120,7 +120,11 @@ export class GameScreen {
 
       return;
     }
-    event.preventDefault();
+
+    if (event.code === "Space") {
+      // 半角スペースの時だけ実行したい
+      event.preventDefault();
+    }
 
     const keyCode = event.key;
 
