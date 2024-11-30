@@ -89,7 +89,7 @@ export const data = {
         key: "sofutoweakaihatu",
       },
       {
-        word: "ハードウェア",
+        word: "ハードウェア開発",
         key: "ha-doweakaihatu",
       },
       {
@@ -139,14 +139,6 @@ export const data = {
       {
         word: "データマイニング",
         key: "de-tamaininngu",
-      },
-      {
-        word: " ビッグデータ",
-        key: "biggude-ta",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
       },
       {
         word: "スーパーアプリ",
@@ -382,30 +374,6 @@ export const data = {
         word: "キジムナー",
         key: "kijimuna-",
       },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
     ],
     it: [
       {
@@ -439,54 +407,6 @@ export const data = {
       {
         word: "ナレッジマネジメント",
         key: "nerejjimanejimennto",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
-      },
-      {
-        word: "キジムナー",
-        key: "kijimuna-",
       },
     ],
   },
